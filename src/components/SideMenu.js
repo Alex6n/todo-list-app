@@ -8,9 +8,10 @@ function SideMenu() {
 
   return (
     <div className="h-screen bg-azure-radiance-950 text-center text-sm font-bold text-azure-radiance-100 ">
+
       <div className="p-3 mt-3 grid grid-rows-3">
         {/* User Section */}
-        <ul className="border-b border-opacity-30 border-azure-radiance-100 mb-7 mt-3 hover:text-azure-radiance-300 transition">
+        <ul className="border-b section mt-3 hover:text-azure-radiance-300 transition">
           <button title="Customize your profile">
             <div className="flex justify-center">
               <img
@@ -23,7 +24,7 @@ function SideMenu() {
         </ul>
 
         {/* Todo Section */}
-        <ul className="border-b border-opacity-30 border-azure-radiance-100 mb-7">
+        <ul className="border-b section">
           <div className="flex justify-center">
             <button
               title="Tasks"
@@ -51,7 +52,7 @@ function SideMenu() {
         </ul>
 
         {/* Help Section */}
-        <ul className="border-opacity-30 border-azure-radiance-100 mb-7">
+        <ul className="section">
           <div className="flex justify-center">
             <button
               title="Notificatations"
