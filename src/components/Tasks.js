@@ -1,77 +1,35 @@
+import { GrFormAdd } from "react-icons/gr";
+import { TbClockHour2 } from "react-icons/tb";
+import { BsCalendar4Week } from "react-icons/bs";
+import { VscCheckAll } from "react-icons/vsc";
+import { GoTrash } from "react-icons/go";
+import { MdClearAll } from "react-icons/md";
+
+
 export default function Tasks() {
   return (
-    
-    <div className="bg-gray-300 h-auto w-full flex flex-col items-center">
-      <div className="overflow-auto whitespace-nowrap py-5 h-10 flex justify-center rounded-lg mt-3 border border-gray-100 bg-gray-50 p-1">
-        <ul className="flex items-center gap-2 text-sm font-medium">
-          <li className="flex-1">
-            <a
-              href="#"
-              className="relative flex items-center justify-center gap-2 rounded-lg bg-white px-3 py-2 shadow hover:bg-white hover:text-gray-700"
-            >
-              Today's tasks
-            </a>
-          </li>
-          <li className="flex-1">
-            <a
-              href="#"
-              className="flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-gray-500 hover:bg-white hover:text-gray-700 hover:shadow"
-            >
-              Next 7 days
-            </a>
-          </li>
-          <li className="flex-1">
-            <a
-              href="#"
-              className="flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-gray-500 hover:bg-white hover:text-gray-700 hover:shadow"
-            >
-              All
-              <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-semibold text-gray-500">
-                8
-              </span>
-            </a>
-          </li>
-          <li className="flex-1">
-            <a
-              href="#"
-              className="flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-gray-500 hover:bg-white hover:text-gray-700 hover:shadow"
-            >
-              Completed
-            </a>
-          </li>
-          <li className="flex-1">
-            <a
-              href="#"
-              className="flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-gray-500 hover:bg-white hover:text-gray-700 hover:shadow"
-            >
-              Trash
-            </a>
-          </li>
+    <div className="bg-gradient-to-tr from-azure-radiance-400 to-azure-radiance-200 h-screen w-full grid grid-rows-2 justify-items-center items-center">
+      
+      <div className="absolute top-7 rounded-xl border bg-azure-radiance-100 p-1">
+        <ul className="flex gap-1 text-sm font-bold">
+          <a href="#" className="flex items-center rounded-lg px-3 py-2 bg-azure-radiance-200 hover:bg-azure-radiance-300 hover:text-gray-700">
+            <GrFormAdd />New task</a>
+          <a href="#" className="flex items-center rounded-lg px-3 py-2 shadow bg-white hover:text-gray-700">
+            <TbClockHour2 className="mr-1"/>Today's tasks</a>
+          <a href="#" className="flex items-center rounded-lg px-3 py-2 text-gray-500 hover:bg-white hover:text-gray-700 hover:shadow">
+            <BsCalendar4Week className="mr-1"/>Next 7 Days</a>
+          <a href="#" className="flex items-center rounded-lg px-3 py-2 text-gray-500 hover:bg-white hover:text-gray-700 hover:shadow">
+            <MdClearAll className="mr-1"/>All</a>
+          <a href="#" className="flex items-center rounded-lg px-3 py-2 text-gray-500 hover:bg-white hover:text-gray-700 hover:shadow">
+            <VscCheckAll className="mr-1" />Completed</a>
+          <a href="#" className="flex items-center rounded-lg px-3 py-2 text-gray-500 hover:bg-white hover:text-gray-700 hover:shadow">
+            <GoTrash className="mr-1"/>Trash</a>
         </ul>
       </div>
-      <div className="flex flex-col items-center mt-60">
-        <div className="p-1">
-          <img className="h-40" src="https://cdn-icons-png.flaticon.com/512/5058/5058432.png"></img>
-<<<<<<< HEAD
-          <p>No tasks for today!</p>
-      </div>
 
-      <div className="hidden grid-col-3 items-center">
-        <div className="p-5 bg-gray-400 rounded-3xl flex gap-3">
-          <img className="h-40" src="https://cdn-icons-png.flaticon.com/512/5058/5058432.png"></img>
-          <div className="grid grid-rows-3">
-            <p className="font-extrabold text-xl">Task Title</p>
-            <p className="font-normal text-lg whitespace-wrap">task description</p>
-            <p className="font-normal text-sm mt-auto">CreatedOn / ExpectedBy</p>
-          </div>
-          <div className="grid grid-rows-3">
-
-          edit- delete - postpone
-          </div>
-=======
-          <h1>No Tasks For Today!</h1>
->>>>>>> parent of f5e59f3 (Revert "Revert "fixing the tabs component"")
-        </div>
+      <div className="flex flex-col items-center justify-center text-center rounded-xl border bg-azure-radiance-100 px-64 py-96">
+        <img className="h-40" src="https://cdn3d.iconscout.com/3d/premium/thumb/no-task-8703462-6995807.png" alt="Task Icon"></img>
+        <p className="font-bold text-lg text-azure-radiance-950">No tasks for today!</p>
       </div>
     </div>
   );
