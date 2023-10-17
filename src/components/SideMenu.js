@@ -11,7 +11,7 @@ function SideMenu() {
 
       <div className="p-3 mt-3 grid grid-rows-3">
         {/* User Section */}
-        <ul className="border-b section mt-3 hover:text-azure-radiance-300 transition">
+        <ul className="border-b section mt-3 hover:text-azure-radiance-400 transition">
           <button title="Customize your profile">
             <div className="flex justify-center">
               <img
@@ -28,7 +28,7 @@ function SideMenu() {
           <div className="flex justify-center">
             <button
               title="Tasks"
-              className="p-2 text-2xl hover:text-azure-radiance-300 transition"
+              className="p-2 text-2xl hover:text-azure-radiance-400 transition"
             >
               <LuListTodo />
             </button>
@@ -36,7 +36,7 @@ function SideMenu() {
           <div className="flex justify-center">
             <button
               title="Calendar"
-              className="p-2 text-2xl hover:text-azure-radiance-300 transition"
+              className="p-2 text-2xl hover:text-azure-radiance-400 transition"
             >
               <SlCalender />
             </button>
@@ -44,7 +44,7 @@ function SideMenu() {
           <div className="flex justify-center">
             <button
               title="Search"
-              className="p-2 mb-7 text-2xl hover:text-azure-radiance-300 transition"
+              className="p-2 mb-7 text-2xl hover:text-azure-radiance-400 transition"
             >
               <CgSearch />
             </button>
@@ -56,7 +56,7 @@ function SideMenu() {
           <div className="flex justify-center">
             <button
               title="Notificatations"
-              className="p-2 text-2xl hover:text-azure-radiance-300 transition"
+              className="p-2 text-2xl hover:text-azure-radiance-400 transition"
             >
               <LuBellRing />
             </button>
@@ -64,7 +64,7 @@ function SideMenu() {
           <div className="flex justify-center">
             <button
               title="Help"
-              className="p-2 text-2xl hover:text-azure-radiance-300 transition"
+              className="p-2 text-2xl hover:text-azure-radiance-400 transition"
             >
               <LuHelpCircle />
             </button>
