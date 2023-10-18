@@ -8,10 +8,10 @@ import { MdClearAll } from "react-icons/md";
 
 export default function Tasks() {
   return (
-    <div className="bg-gradient-to-tr from-azure-radiance-400 to-azure-radiance-200 h-screen w-full grid grid-rows-3 justify-center">
+    <div className="bg-gradient-to-tr from-azure-radiance-400 to-azure-radiance-200 h-screen w-full grid grid-rows-3 justify-items-center">
     
-      <div>
-        <div className="mt-5 col-span-1 rounded-xl bg-azure-radiance-100 p-1">
+      <div className="containe col-span-1">
+        <div className="mt-5  rounded-xl bg-azure-radiance-100 max-w-fit p-1">
           <ul className="flex gap-1 text-sm font-bold">
             <a href="#" className="special-tab"><GrFormAdd />New task</a>
             <a href="#" className="active-tab"><TbClockHour2 className="mr-1"/>Today's tasks</a>
@@ -28,15 +28,17 @@ export default function Tasks() {
         <p className="font-bold text-lg text-azure-radiance-900">No tasks for today!</p>
       </div>
       
-      <div>
-        <div className="flex flex-col items-center">
-          <div className="p-5 bg-azure-radiance-400 rounded-3xl flex gap-3">
-            <img className="h-40" src="https://math-media.byjusfutureschool.com/bfs-math/2022/07/04185628/Asset-1-8-300x300.png" alt="Task Icon"></img>
-            <div className="grid grid-rows-3">
-              <p className="font-extrabold text-xl">Task Title</p>
-              <p className="font-normal text-lg whitespace-wrap">
-                task description
-              </p>
+      <div className="container content-start">
+        <div className="p-4 bg-azure-radiance-400 rounded-3xl w-6xl h-xl">
+          <div className="grid grid-cols-4 gap-3">
+            <img className="h-40 justify-self-center" src="https://math-media.byjusfutureschool.com/bfs-math/2022/07/04185628/Asset-1-8-300x300.png" alt="Task Icon"></img>
+            <div className="col-span-2 grid grid-rows-3">
+              <div className="my-9 row-span-2 mb-0 mt-0 whitespace-wrap">
+                <p className="font-extrabold text-xl">Task Title</p>
+                <p className="font-normal text-base">task 
+                task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task task 
+                description</p>
+              </div>
               <p className="font-normal text-sm mt-auto">CreatedOn / ExpectedBy</p>
             </div>
             <div className="grid grid-rows-3">
@@ -45,6 +47,7 @@ export default function Tasks() {
           </div>
         </div>
       </div>
+
       
       
     </div>
