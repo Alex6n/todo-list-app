@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { changeUsername } from "../store/userSlice";
+import { changeUsername } from "../../store/userSlice";
 
 export default function Form() {
   const dispatch = useDispatch();

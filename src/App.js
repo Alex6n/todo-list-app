@@ -1,13 +1,13 @@
 import './App.css';
-import Tasks from './components/Tasks';
+import Main from './components/Main';
 import SideMenu from './components/SideMenu';
 
 function App() {
   return (
-      <div className="flex">
-        <SideMenu />
-        <Tasks />
-      </div>
+    <div className="flex">
+      <SideMenu/>
+      <Main />
+    </div>
   );
 }
 
