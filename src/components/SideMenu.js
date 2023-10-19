@@ -10,20 +10,20 @@ function SideMenu() {
     <div className="grid grid-rows-5 h-screen p-3 w-16 bg-azure-radiance-950 text-azure-radiance-100">
 
       {/* User Section */}
-      <div className="border-b section mt-3 hover:text-azure-radiance-400 transition">
+      <div className="border-b section mt-3">
         <div className="flex justify-center">
-          <button title="Customize your profile">
-            <img
-              className="h-10 rounded-xl hover:"
+          <button className="hover:text-azure-radiance-400 transition" title="Customize your profile">
+            <img alt=""
+              className="h-10 rounded-xl"
               src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOj12MDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
             />
-            <p className="text-center text-xs">{username}</p>
+            <p className="text-center font-bold text-xs">{username}</p>
           </button>
         </div>
       </div>
 
       {/* Todo Section */}
-      <div className="border-b section ">
+      <div className="border-b section">
         <div className="flex justify-center">
           <button
             title="Tasks"

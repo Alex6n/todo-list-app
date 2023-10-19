@@ -15,7 +15,4 @@
     .section {
         @apply border-opacity-30 border-azure-radiance-100 mb-7
     }
-    .item {
-        @apply text-black border-black p-4 border
-    }
 };
