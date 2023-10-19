@@ -5,16 +5,44 @@ import Tasks from './Tasks'
 
 export default function Main() {
   return (
-    <div className="bg-gradient-to-tr from-azure-radiance-400 to-azure-radiance-200 h-screen w-screen">
+    <div className="bg-gradient-to-tr from-azure-radiance-400 to-azure-radiance-200 h-screen w-screen overflow-auto">
 
       <Tab.Group>
-        <div className="flex flex-col items-center mb-4">
+        <div className="sticky flex flex-col items-center mb-4">
           <Tabs />
         </div>
         <Tab.Panels>
           <Tab.Panel>
-            <div className="overflow-y-auto">
+            <div className="ml-14 items-center">
+              <div className="flex flex-wrap gap-3">
               <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              <Tasks />
+              </div>
             </div>
             <div className='hidden mt-24'><Empty /></div>
           </Tab.Panel>

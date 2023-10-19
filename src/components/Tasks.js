@@ -1,12 +1,15 @@
-import React from "react";
+import { FiEdit } from 'react-icons/fi';
+import { LuDelete } from 'react-icons/lu';
+import { BiAlarmSnooze } from 'react-icons/bi';
+import { MdSettingsBackupRestore } from 'react-icons/md';
 
 export default function Tasks() {
   return (
-    <div className="max-w-3xl mt-4 p-4 bg-azure-radiance-400 rounded-3xl">
+    <div className="max-w-3xl mt-4 p-4 bg-azure-radiance-200 rounded-3xl shadow-2xl">
 
       <div className="grid grid-cols-4 gap-3">
 
-        <div>
+        <div className="card-devider">
           <img
             className="h-40 justify-self-center"
             src="https://math-media.byjusfutureschool.com/bfs-math/2022/07/04185628/Asset-1-8-300x300.png"
@@ -14,12 +17,11 @@ export default function Tasks() {
           ></img>
         </div>
         
-        <div className="col-span-2 grid grid-rows-3 max-w-fit">
-          <div className="row-span-2 mt-0 whitespace-wrap">
+        <div className="col-span-2 max-w-fit card-devider">
+          <div className="mt-0 whitespace-wrap">
             <p className="font-extrabold text-xl">Task Title</p>
             <div className="overflow-scroll h-28 w-96">
-              <p className="font-normal text-base">Task
-                Description</p>
+              <p className="font-normal text-base">Task Description</p>
             </div>
           </div>
           <div>
@@ -27,7 +29,12 @@ export default function Tasks() {
           </div>
         </div>
 
-        <div className="">edit- delete - postpone</div>
+        <div className="">
+        <a href="#" className="special-tab"><BiAlarmSnooze className="mr-1"/>Postpone</a>
+        <a href="#" className="special-tab"><FiEdit className="mr-1"/>Edit</a>
+        <a href="#" className="special-tab"><LuDelete className="mr-1"/>Delete</a>
+        <a href="#" className="hidden special-tab"><MdSettingsBackupRestore className="mr-1"/>Restore</a>
+        </div>
 
       </div>
     </div>
