@@ -5,7 +5,7 @@ import { MdSettingsBackupRestore } from 'react-icons/md';
 
 export default function Tasks() {
   return (
-    <div className="max-w-3xl mt-4 p-4 bg-azure-radiance-200 rounded-3xl shadow-2xl">
+    <div className="max-w-3xl mt-4 p-4 bg-azure-radiance-200 rounded-3xl shadow-md">
 
       <div className="grid grid-cols-4 gap-3">
 
@@ -29,7 +29,7 @@ export default function Tasks() {
           </div>
         </div>
 
-        <div className="">
+        <div>
           <div className="flex justify-center mb-3 ">
             <div className="hidden badge urgent">Urgent</div>
             <div className="hidden badge pressing">Pressing</div>
@@ -37,10 +37,10 @@ export default function Tasks() {
             <div className="badge optional">Optional</div>
           </div>
 
-          <a href="#" className="special-tab"><BiAlarmSnooze className="mr-1"/>Postpone</a>
-          <a href="#" className="special-tab"><FiEdit className="mr-1"/>Edit</a>
-          <a href="#" className="special-tab"><LuDelete className="mr-1"/>Delete</a>
-          <a href="#" className="hidden special-tab"><MdSettingsBackupRestore className="mr-1" />Restore</a>
+          <a href="#" className="card-action pspn"><BiAlarmSnooze className="mr-1"/>Postpone</a>
+          <a href="#" className="card-action edt"><FiEdit className="mr-1"/>Edit</a>
+          <a href="#" className="card-action del"><LuDelete className="mr-1"/>Delete</a>
+          <a href="#" className="hidden card-action rstr"><MdSettingsBackupRestore className="mr-1" />Restore</a>
 
 
 

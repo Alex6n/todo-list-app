@@ -15,6 +15,21 @@
     .card-devider {
         @apply border-r border-opacity-30 border-azure-radiance-950
     }
+    .card-action {
+        @apply flex items-center rounded-lg px-3 py-2 transition
+    }
+    .del {
+        @apply text-red-700 hover:bg-red-100 hover:text-gray-700 
+    }
+    .edt {
+        @apply text-blue-700 hover:bg-blue-100 hover:text-gray-700
+    }
+    .pspn {
+        @apply text-amber-700 hover:bg-amber-100 hover:text-gray-700
+    }
+    .rstr {
+        @apply text-lime-700 hover:bg-lime-100 hover:text-gray-700
+    }
     .badge {
         @apply rounded-xl max-w-fit px-2 text-center font-bold text-sm text-azure-radiance-100
     }
