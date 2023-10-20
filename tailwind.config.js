@@ -17,6 +17,11 @@ module.exports = {
           '800': '#655a7d',
           '900': '#544b67',
           '950': '#363045',
+          'urgent': '#cf3333',
+          'pressing': '#ee6f31',
+          'strategic': '#3f9cf2', // or 2584d2
+          'optional': '#4db52d',
+          
         },
       }
     },

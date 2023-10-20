@@ -18,4 +18,19 @@
     .card-devider {
         @apply border-r border-opacity-30 border-azure-radiance-950
     }
+    .badge {
+        @apply rounded-xl max-w-fit px-2 text-center font-bold text-sm text-azure-radiance-100
+    }
+    .urgent {
+        @apply bg-azure-radiance-urgent
+    }
+    .pressing {
+        @apply bg-azure-radiance-pressing
+    }
+    .strategic {
+        @apply bg-azure-radiance-strategic
+    }
+    .optional {
+        @apply bg-azure-radiance-optional
+    }
 };

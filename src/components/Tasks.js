@@ -12,7 +12,7 @@ export default function Tasks() {
         <div className="card-devider">
           <img
             className="h-40 justify-self-center"
-            src="https://math-media.byjusfutureschool.com/bfs-math/2022/07/04185628/Asset-1-8-300x300.png"
+            src={require('../assets/task-template.png')}
             alt="Task Icon"
           ></img>
         </div>
@@ -30,10 +30,20 @@ export default function Tasks() {
         </div>
 
         <div className="">
-        <a href="#" className="special-tab"><BiAlarmSnooze className="mr-1"/>Postpone</a>
-        <a href="#" className="special-tab"><FiEdit className="mr-1"/>Edit</a>
-        <a href="#" className="special-tab"><LuDelete className="mr-1"/>Delete</a>
-        <a href="#" className="hidden special-tab"><MdSettingsBackupRestore className="mr-1"/>Restore</a>
+          <div className="flex justify-center mb-3 ">
+            <div className="hidden badge urgent">Urgent</div>
+            <div className="hidden badge pressing">Pressing</div>
+            <div className="hidden badge strategic">Strategic</div>
+            <div className="badge optional">Optional</div>
+          </div>
+
+          <a href="#" className="special-tab"><BiAlarmSnooze className="mr-1"/>Postpone</a>
+          <a href="#" className="special-tab"><FiEdit className="mr-1"/>Edit</a>
+          <a href="#" className="special-tab"><LuDelete className="mr-1"/>Delete</a>
+          <a href="#" className="hidden special-tab"><MdSettingsBackupRestore className="mr-1" />Restore</a>
+
+
+
         </div>
 
       </div>
