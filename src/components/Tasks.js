@@ -31,10 +31,10 @@ export default function Tasks() {
 
         <div>
           <div className="flex justify-center mb-3 ">
-            <div className="hidden badge urgent">Urgent</div>
-            <div className="hidden badge pressing">Pressing</div>
+            <div className="badge urgent">Urgent</div>
+            <div className="hidden pressing">Pressing</div>
             <div className="hidden badge strategic">Strategic</div>
-            <div className="badge optional">Optional</div>
+            <div className="hidden badge optional">Optional</div>
           </div>
 
           <a href="#" className="card-action pspn"><BiAlarmSnooze className="mr-1"/>Postpone</a>
