@@ -21,6 +21,10 @@ module.exports = {
           'pressing': '#ee6f31',
           'strategic': '#3f9cf2', // or 2584d2
           'optional': '#4db52d',
+          'urgent-dark': '#902424',
+          'pressing-dark': '#b83816',
+          'strategic-dark': '#2169d4',
+          'optional-dark': '#2d6e1d',
           
         },
       }

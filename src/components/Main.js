@@ -1,5 +1,6 @@
 import { Tab } from '@headlessui/react'
 import Tabs from './Tabs'
+import Filters from './Filters'
 import Empty from './Empty'
 import Tasks from './Tasks'
 
@@ -10,7 +11,8 @@ export default function Main() {
       <Tab.Group>
       
         <div className="sticky flex flex-col items-center pb-4 top-0 z-10 bg-gray-100 bg-opacity-60">
-          <Tabs />
+        <Tabs />
+        <Filters />
         </div>
         <Tab.Panels>
           <Tab.Panel>
@@ -21,7 +23,7 @@ export default function Main() {
               <Tasks />
               <Tasks />
             </div>
-            <div className='hidden mt-24'><Empty /></div>
+            <div className='hidden mt-28'><Empty /></div>
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
