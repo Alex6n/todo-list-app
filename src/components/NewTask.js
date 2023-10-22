@@ -3,6 +3,9 @@ import { Popover, Transition, Menu } from '@headlessui/react'
 import { GrFormAdd } from "react-icons/gr";
 
 export default function NewTask() {
+  function menuOpen() {
+    document.getElementById("gmDropdown").classList.toggle("hidden");
+  }
   return (
     <Popover className="relative">
         <Popover.Button className="special-tab"><GrFormAdd />New task</Popover.Button>
@@ -23,14 +26,23 @@ export default function NewTask() {
                       <lable className="h-fit self-end">Title :</lable><input type="text" id="task-name" className='rounded-lg p-2 bg-slate-200'/>
                     </div>
                     <div class="relative mb-3 grid grid-cols-1">
-                      <lable>Description :</lable><textarea type="text" id="task-desc"className='rounded-lg p-3 bg-slate-200'/>
+                      <lable>Description :</lable><textarea type="text" id="task-desc"className='rounded-lg p-6 bg-slate-200'/>
                     </div>
                     <div class="relative mb-3">
                       <lable>Expected By :</lable>
                       <input type="date" id="expectedby"></input>
                     </div>
-                    <div class="relative mb-3">
-                      <lable>Priority :</lable>
+                    <div class="relative mb-3 grid grid-rows-2">
+                      <lable className="">Priority :</lable>
+                    <div class="grid grid-rows-3">
+                    <a href="#" onClick={menuOpen} className="bg-slate-200 rounded-lg p-2">Select Priority...</a>
+                      <ul id="gmDropdown" class="hidden row-span-2 bg-slate-200 rounded-lg text-white text-center">
+                        <li className="urgent rounded-lg"><a href="#">Urgent</a></li>
+                        <li className="strategic rounded-lg"><a href="#">Strategic</a></li>
+                        <li className="pressing rounded-lg"><a href="#">Pressing</a></li>
+                        <li className='optional rounded-lg'><a href="#">Optional</a></li>
+                      </ul>
+                    </div>
                     </div>                    
                     <div class="relative mb-3">
                       <lable>Icon :</lable><input type="file" id="myfile" name="myfile"/>
