@@ -48,16 +48,4 @@
     .optional {
         @apply bg-azure-radiance-optional
     }
-    .urgent-d {
-        @apply bg-azure-radiance-urgent-dark
-    }
-    .pressing-d {
-        @apply bg-azure-radiance-pressing-dark
-    }
-    .strategic-d {
-        @apply bg-azure-radiance-strategic-dark
-    }
-    .optional-d {
-        @apply bg-azure-radiance-optional-dark
-    }
 };

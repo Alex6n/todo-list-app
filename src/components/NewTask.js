@@ -15,27 +15,27 @@ export default function NewTask() {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
         >
-            <Popover.Panel className="absolute left-1/2 z-10 mt-3 -translate-x-1/2 transform px-4">
-              <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 w-56">
-                <div className="relative bg-white p-7">
+            <Popover.Panel className="absolute left-1/2 mt-2 -translate-x-1/2 transform px-4">
+              <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                <div className="relative bg-white p-8">
                   <form>
-                  <div class="relative mb-2">
-                      <lable>Title :</lable><input type="text" id="task-name" className='rounded-lg bg-slate-200'/>
+                    <div class="relative mb-3 grid grid-rows-2">
+                      <lable className="h-fit self-end">Title :</lable><input type="text" id="task-name" className='rounded-lg p-2 bg-slate-200'/>
                     </div>
-                    <div class="relative mb-2">
-                      <lable>Description :</lable><textarea type="text" id="task-desc"className='rounded-lg bg-slate-200'></textarea>
+                    <div class="relative mb-3 grid grid-cols-1">
+                      <lable>Description :</lable><textarea type="text" id="task-desc"className='rounded-lg p-3 bg-slate-200'/>
                     </div>
-                    <div class="relative mb-2">
+                    <div class="relative mb-3">
                       <lable>Expected By :</lable>
                       <input type="date" id="expectedby"></input>
                     </div>
-                    <div class="relative mb-2">
+                    <div class="relative mb-3">
                       <lable>Priority :</lable>
                     </div>                    
-                    <div class="relative mb-2">
+                    <div class="relative mb-3">
                       <lable>Icon :</lable><input type="file" id="myfile" name="myfile"/>
                     </div>
-                    <a href='#' className="special-tab"><GrFormAdd />Create</a>
+                    <a href='#' className="special-tab w-fit self-center"><GrFormAdd />Create a new task</a>
                   </form>
                 </div>
               </div>

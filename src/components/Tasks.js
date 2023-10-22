@@ -5,7 +5,7 @@ import { MdSettingsBackupRestore } from 'react-icons/md';
 
 export default function Tasks() {
   return (
-    <div className="max-w-3xl mt-4 p-4 bg-azure-radiance-200 rounded-3xl shadow-md">
+    <div className="max-w-3xl mt-2 p-4 bg-azure-radiance-200 rounded-3xl shadow-md">
 
       <div className="grid grid-cols-4 gap-3">
 
