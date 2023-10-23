@@ -22,8 +22,8 @@ export default function NewTask() {
         leaveTo="opacity-0 translate-y-1"
       >
         <Popover.Panel className="absolute left-1/2 mt-2 -translate-x-1/2 transform">
-          <div className="overflow-auto rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-            <div className="relative bg-gradient-to-br from-azure-radiance-400 to-azure-radiance-300 p-7">
+          <div className="overflow-auto rounded-lg shadow-2xl ring-1 ring-black ring-opacity-5">
+            <div className="relative bg-gradient-to-tr from-azure-radiance-400 to-azure-radiance-300 p-7">
               <form>
                 <div className="mb-3 grid grid-wrap">
                   <label className="h-fit self-end">Title :</label>
