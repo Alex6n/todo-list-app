@@ -3,8 +3,14 @@ import Tabs from './Tabs'
 import Filters from './Filters'
 import Empty from './Empty'
 import Tasks from './Tasks'
+import { useSelector } from 'react-redux'
 
 export default function Main() {
+  const tasks = useSelector(state => state.tasks.list);
+  const todaysDate = new Date().toISOString().slice(0, 10)
+  const todayTasks = tasks.filter(task => task.ExpectedBy == todaysDate)
+  //const weekTasks = tasks.filter(task => task.ExpectedBy.split('-')[2] > todaysDate.split('-')[2]+7)
+  //console.log(weekTasks)
   return (
     <div className="bg-gradient-to-tr from-azure-radiance-400 to-azure-radiance-200 h-screen w-screen overflow-auto">
 
@@ -15,13 +21,18 @@ export default function Main() {
         </div>
         <Tab.Panels>
           <Tab.Panel>
-            <div className='mt-28'><Empty /></div>
+            <div className="flex flex-wrap gap-3">
+              <div className="m-auto">
+                {todayTasks.length == 0 ? <div className='mt-28'><Empty text='No tasks for today!' /></div> : todayTasks.map((task, index) => { return (<Tasks key={index} task={task} />) })}
+              </div>
+            </div>
+          </Tab.Panel>
+          <Tab.Panel>
           </Tab.Panel>
           <Tab.Panel>
             <div className="flex flex-wrap gap-3">
               <div className="m-auto">
-                <Tasks />
-                <Tasks />
+                {tasks.length == 0 ? <div className='mt-28'><Empty text='looks like your task list is empty!' /></div> : tasks.map((task,index) => { return (<Tasks key={index} task={task} />) })}
               </div>
             </div>
           </Tab.Panel>

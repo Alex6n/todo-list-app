@@ -2,11 +2,28 @@ import { Fragment, useState } from 'react';
 import { Popover, Transition, Listbox } from '@headlessui/react';
 import { GrFormAdd } from "react-icons/gr";
 import { ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import { useDispatch } from 'react-redux';
+import { addTask } from '../store/tasksSlice';
 
 
 export default function NewTask() {
+  const dispatch = useDispatch();
   const [selected, setSelected] = useState('Urgent');
 
+  const newTaskHandler = () => {
+    dispatch(addTask({
+      Title: document.getElementById('task-name').value,
+      Describtion: document.getElementById('task-desc').value,
+      Priority: selected,
+      ExpectedBy: document.getElementById('expectedby').value,
+      Icon: '../assets/task-template.png',
+      CreatedOn: new Date().toISOString().slice(0, 10),
+      Completed: false,
+      Trash: false,
+      User: 'Alex'
+    }))
+  }
+  
   return (
     <Popover className="relative">
       <Popover.Button className="special-tab">
@@ -27,7 +44,7 @@ export default function NewTask() {
               <form>
                 <div className="mb-3 grid grid-wrap">
                   <label className="h-fit self-end">Title :</label>
-                  <input type="text" id="task-name" className='rounded-lg p-2 bg-azure-radiance-200' />
+                  <input type="text" id="task-name" className='rounded-lg p-2 bg-azure-radiance-200' required="required" />
                 </div>
                 <div className="mb-3 grid grid-cols-1">
                   <label>Description :</label>
@@ -73,7 +90,7 @@ export default function NewTask() {
                   <input type="file" id="myfile" name="myfile" />
                 </div>
                 <div className="flex flex-col">
-                  <a href='#' className="special-tab content-center">
+                  <a href='#' onClick={newTaskHandler} className="special-tab content-center">
                     <GrFormAdd />Create a new task
                   </a>
                 </div>

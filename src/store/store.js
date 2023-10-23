@@ -1,14 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userSlice from "./userSlice";
+import { tasksSlice } from "./tasksSlice";
 
 
 let store = configureStore({
     reducer: {
-        user: userSlice,
+        tasks: tasksSlice.reducer,
     }
 });
 
-store.subscribe(() => console.log(store.getState()));
+//store.subscribe(() => console.log(store.getState()));
 
 
 export default store;

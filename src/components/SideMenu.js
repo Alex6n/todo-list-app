@@ -4,12 +4,13 @@ import { SlCalender } from "react-icons/sl";
 import { CgSearch } from "react-icons/cg";
 import { Listbox, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import AccountMenu from "./AccountMenu";
 
 function SideMenu() {
-  const username = useSelector((state) => state.user.username);
+  const username = 'Alex'//useSelector((state) => state.user.username);
 
   return (
-    <div className="hidden sm:grid grid-rows-5 h-screen p-3 w-16 bg-azure-radiance-950 text-azure-radiance-100">
+    <div className="hidden sticky sm:grid grid-rows-5 h-screen p-3 w-16 bg-azure-radiance-950 text-azure-radiance-100">
 
       {/* User Section */}
       <div className="border-b section mt-3">
@@ -29,10 +30,8 @@ function SideMenu() {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Listbox.Options className="fixed left-14 top-0 rounded-lg bg-azure-radiance-200 mt-1 text-center shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                <Listbox.Option className="cursor-default select-none py-2 hover:urgent hover:text-white" value="Urgent">Profile</Listbox.Option>
-                <Listbox.Option className="cursor-default select-none py-2 hover:strategic hover:text-white" value="Strategic">Settings</Listbox.Option>
-                <Listbox.Option className="cursor-default select-none py-2 hover:pressing hover:text-white" value="Pressing">Logout</Listbox.Option>
+              <Listbox.Options>
+                <AccountMenu/>
               </Listbox.Options>
             </Transition>
           </div>
