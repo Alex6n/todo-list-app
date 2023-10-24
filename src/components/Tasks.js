@@ -2,8 +2,17 @@ import { FiEdit } from 'react-icons/fi';
 import { LuDelete } from 'react-icons/lu';
 import { BiAlarmSnooze } from 'react-icons/bi';
 import { MdSettingsBackupRestore } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateTask } from '../store/tasksSlice';
 
-export default function Tasks({task,catogery}) {
+export default function Tasks({ task, catogery }) {
+  const dispatch = useDispatch();
+
+  
+  const removeTaskHandler = (updatedTask) => {
+    dispatch(updateTask({ task, updatedTask }));
+  };
+
   return (
     <div className="max-w-3xl mt-2 p-4 bg-azure-radiance-200 rounded-3xl shadow-md">
       
@@ -52,7 +61,7 @@ export default function Tasks({task,catogery}) {
               <div>
                 <a href="#" className="card-action pspn"><BiAlarmSnooze className="mr-1" /> Postpone</a>
                 <a href="#" className="card-action edt"><FiEdit className="mr-1" /> Edit</a>
-                <a href="#" className="card-action del"><LuDelete className="mr-1" /> Delete</a>
+                <a href="#" onClick={() => removeTaskHandler({ ...task, Trash: true })} className="card-action del"><LuDelete className="mr-1" /> Delete</a>
               </div>
             )}
           </div>

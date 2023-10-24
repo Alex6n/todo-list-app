@@ -4,12 +4,14 @@ export const tasksSlice = createSlice({
     name: 'tasks',
     initialState: { list: [] },
     reducers: {
-        addTask: (state, action) => {state.list.push(action.payload)},
-        updateTask: (state, action) => {state.list[action.payload.index] = action.payload.updatedTask;},
-        //deleteTask: (state, action) => {state.tasks.push(action.payload)},
+        addTask: (state, action) => { state.list.push(action.payload) },
+        updateTask: (state, action) => { 
+            console.log(state.list.find(item => item === action.payload.task))
+            //state.list[index] = action.payload.change;
+    },
     }
 })
 
-export const {addTask} = tasksSlice.actions;
+export const {addTask,updateTask} = tasksSlice.actions;
 
 export default tasksSlice.reducer;
