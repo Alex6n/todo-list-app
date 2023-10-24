@@ -5,7 +5,7 @@ export const tasksSlice = createSlice({
     initialState: { list: [] },
     reducers: {
         addTask: (state, action) => {state.list.push(action.payload)},
-        //updateTask: (state, action) => {...state.tasks,state.tasks},
+        updateTask: (state, action) => {state.list[action.payload.index] = action.payload.updatedTask;},
         //deleteTask: (state, action) => {state.tasks.push(action.payload)},
     }
 })
