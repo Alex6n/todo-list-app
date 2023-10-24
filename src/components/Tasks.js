@@ -19,8 +19,8 @@ export default function Tasks({task}) {
         
         <div className="col-span-2 max-w-fit card-devider">
           <div className="mt-0 whitespace-wrap">
-            <p className="font-extrabold text-xl">{task.Title}</p>
-            <div className="overflow-scroll h-28 w-96">
+              <p className="font-extrabold text-xl">{task.Title}</p>
+            <div className="overflow-scroll h-28 max-w-xl">
               <p className="font-normal text-base">{task.Describtion}</p>
             </div>
           </div>
