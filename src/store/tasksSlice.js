@@ -6,8 +6,8 @@ export const tasksSlice = createSlice({
     reducers: {
         addTask: (state, action) => { state.list.push(action.payload) },
         updateTask: (state, action) => { 
-            console.log(state.list.find(item => item === action.payload.task))
-            //state.list[index] = action.payload.change;
+            const { index, updatedTask } = action.payload;
+            state.list[index] = {...state.list[index], ...updatedTask}
     },
     }
 })

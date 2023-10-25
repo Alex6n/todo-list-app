@@ -27,8 +27,8 @@
     .edt {
         @apply text-blue-700 hover:bg-blue-100 hover:text-gray-700
     }
-    .pspn {
-        @apply text-amber-700 hover:bg-amber-100 hover:text-gray-700
+    .cmplt {
+        @apply text-lime-700 hover:bg-lime-100 hover:text-gray-700
     }
     .rstr {
         @apply text-lime-700 hover:bg-lime-100 hover:text-gray-700

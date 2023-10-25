@@ -1,16 +1,30 @@
 import { FiEdit } from 'react-icons/fi';
 import { LuDelete } from 'react-icons/lu';
-import { BiAlarmSnooze } from 'react-icons/bi';
-import { MdSettingsBackupRestore } from 'react-icons/md';
+import { VscError } from 'react-icons/vsc';
+import { BsQuestionCircle } from 'react-icons/bs';
+import { MdRestore } from 'react-icons/md';
+import { ImCheckmark } from 'react-icons/im';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateTask } from '../store/tasksSlice';
 
+
 export default function Tasks({ task, catogery }) {
+  const list = useSelector(state => state.tasks.list);
+  const index = list.findIndex(item => item.Title == task.Title)
   const dispatch = useDispatch();
 
   
-  const removeTaskHandler = (updatedTask) => {
-    dispatch(updateTask({ task, updatedTask }));
+  const removeTaskHandler = () => {
+    dispatch(updateTask({index: index, updatedTask: {...task, Trash: true}}));
+  };
+  const completeTaskHandler = () => {
+    dispatch(updateTask({index: index, updatedTask: {...task, Completed: true}}));
+  };
+  const restoreTaskHandler = () => {
+    dispatch(updateTask({index: index, updatedTask: {...task, Trash: false}}));
+  };
+  const unCompletedTaskHandler = () => {
+    dispatch(updateTask({index: index, updatedTask: {...task, Completed: false}}));
   };
 
   return (
@@ -51,17 +65,19 @@ export default function Tasks({ task, catogery }) {
           <div>
             {catogery === 'completed' ? (
               <div>
-                <a href="#" className="card-action pspn"><BiAlarmSnooze className="mr-1" /> Postpone</a>
+                <a href="#" onClick={unCompletedTaskHandler} className="card-action del"><BsQuestionCircle className="mr-1" />Uncompleted</a>
+                <a href="#" onClick={removeTaskHandler} className="card-action del"><LuDelete className="mr-1" /> Remove Task</a>
               </div>
             ) : catogery === 'trash' ? (
               <div>
-                <a href="#" className="card-action pspn"><BiAlarmSnooze className="mr-1" /> Postpone</a>
+                <a href="#" onClick={restoreTaskHandler} className="card-action rstr"><MdRestore className="mr-1" /> Restore Task</a>
+                <a href="#" className="card-action del"><VscError className="mr-1" /> Delete Task</a>
               </div>
             ) : (
               <div>
-                <a href="#" className="card-action pspn"><BiAlarmSnooze className="mr-1" /> Postpone</a>
-                <a href="#" className="card-action edt"><FiEdit className="mr-1" /> Edit</a>
-                <a href="#" onClick={() => removeTaskHandler({ ...task, Trash: true })} className="card-action del"><LuDelete className="mr-1" /> Delete</a>
+                <a href="#" onClick={completeTaskHandler} className="card-action cmplt"><ImCheckmark className="mr-1" /> Mark Completed</a>
+                <a href="#" className="card-action edt"><FiEdit className="mr-1" /> Edit Task</a>
+                <a href="#" onClick={removeTaskHandler} className="card-action del"><LuDelete className="mr-1" /> Remove Task</a>
               </div>
             )}
           </div>
