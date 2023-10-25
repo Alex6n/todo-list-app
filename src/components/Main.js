@@ -12,7 +12,7 @@ export default function Main() {
   const todaysDate = new Date().toISOString().slice(0, 10)
   const todayTasks = allTasks.filter(task => task.ExpectedBy == todaysDate)
   const weekTasks = allTasks.filter(task =>  new Date(task.ExpectedBy).getTime() < (new Date(todaysDate).getTime()+604800000))
-  const completedTasks = tasks.filter(task =>  task.Completed == true)
+  const completedTasks = tasks.filter(task =>  task.Completed == true && task.Trash == false)
   const deletedTasks = tasks.filter(task =>  task.Trash == true)
 
   return (
