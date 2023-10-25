@@ -3,7 +3,7 @@ import { Popover, Transition, Listbox } from '@headlessui/react';
 import { GrFormAdd } from "react-icons/gr";
 import { ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { useDispatch } from 'react-redux';
-import { addTask } from '../store/tasksSlice';
+import { addTask } from '../../store/tasksSlice';
 
 
 export default function NewTask() {
@@ -16,7 +16,7 @@ export default function NewTask() {
       Describtion: document.getElementById('task-desc').value,
       Priority: selected,
       ExpectedBy: document.getElementById('expectedby').value,
-      Icon: '../assets/task-template.png',
+      Icon: '../../assets/task-template.png',
       CreatedOn: new Date().toISOString().slice(0, 10),
       Completed: false,
       Trash: false,

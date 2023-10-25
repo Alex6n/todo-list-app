@@ -1,8 +1,8 @@
 import { Tab } from '@headlessui/react'
-import Tabs from './Tabs'
-import Filters from './Filters'
-import Empty from './Empty'
-import Tasks from './Tasks'
+import Tabs from './tasks/Tabs'
+import Filters from './tasks/Filters'
+import Empty from './tasks/Empty'
+import Tasks from './tasks/Tasks'
 import { useSelector } from 'react-redux'
 
 
@@ -55,7 +55,7 @@ export default function Main() {
           <Tab.Panel>
             <div className="flex flex-wrap gap-3">
               <div className="m-auto">
-                              {deletedTasks.length == 0 ? <div className='mt-28'><Empty text="the trash bin is empty!" /></div> : deletedTasks.map((task, index) => { return (<Tasks key={index} task={task} catogery={'trash'} />) })}
+                {deletedTasks.length == 0 ? <div className='mt-28'><Empty text="the trash bin is empty!" /></div> : deletedTasks.map((task, index) => { return (<Tasks key={index} task={task} catogery={'trash'} />) })}
               </div>
             </div>
           </Tab.Panel>

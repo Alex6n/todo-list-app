@@ -1,18 +1,17 @@
-import { FiEdit } from 'react-icons/fi';
 import { LuDelete } from 'react-icons/lu';
 import { VscError } from 'react-icons/vsc';
 import { BsQuestionCircle } from 'react-icons/bs';
 import { MdRestore } from 'react-icons/md';
 import { ImCheckmark } from 'react-icons/im';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateTask, deleteTask } from '../store/tasksSlice';
+import { updateTask, deleteTask } from '../../store/tasksSlice';
+import EditTask from './EditTask';
 
 
 export default function Tasks({ task, catogery }) {
   const list = useSelector(state => state.tasks.list);
   const index = list.findIndex(item => item.Title == task.Title)
   const dispatch = useDispatch();
-
   
   const removeTaskHandler = () => {
     dispatch(updateTask({index: index, updatedTask: {...task, Trash: true}}));
@@ -23,7 +22,7 @@ export default function Tasks({ task, catogery }) {
   const restoreTaskHandler = () => {
     dispatch(updateTask({index: index, updatedTask: {...task, Trash: false}}));
   };
-  const unCompletedTaskHandler = () => {
+  const inCompletedTaskHandler = () => {
     dispatch(updateTask({index: index, updatedTask: {...task, Completed: false}}));
   };
   const deleteTaskHandler = () => {
@@ -38,7 +37,7 @@ export default function Tasks({ task, catogery }) {
         <div className="card-devider">
           <img
             className="h-40 justify-self-center"
-            src={require('../assets/task-template.png')}
+            src={require('../../assets/task-template.png')}
             alt="Task Icon"
           ></img>
         </div>
@@ -68,7 +67,7 @@ export default function Tasks({ task, catogery }) {
           <div>
             {catogery === 'completed' ? (
               <div>
-                <a href="#" onClick={unCompletedTaskHandler} className="card-action del"><BsQuestionCircle className="mr-1" />Uncompleted</a>
+                <a href="#" onClick={inCompletedTaskHandler} className="card-action del"><BsQuestionCircle className="mr-1" />Incomplete</a>
                 <a href="#" onClick={removeTaskHandler} className="card-action del"><LuDelete className="mr-1" /> Remove Task</a>
               </div>
             ) : catogery === 'trash' ? (
@@ -79,7 +78,7 @@ export default function Tasks({ task, catogery }) {
             ) : (
               <div>
                 <a href="#" onClick={completeTaskHandler} className="card-action cmplt"><ImCheckmark className="mr-1" /> Mark Completed</a>
-                <a href="#" className="card-action edt"><FiEdit className="mr-1" /> Edit Task</a>
+                <EditTask/>
                 <a href="#" onClick={removeTaskHandler} className="card-action del"><LuDelete className="mr-1" /> Remove Task</a>
               </div>
             )}
