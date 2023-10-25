@@ -8,10 +8,11 @@ export const tasksSlice = createSlice({
         updateTask: (state, action) => { 
             const { index, updatedTask } = action.payload;
             state.list[index] = {...state.list[index], ...updatedTask}
-    },
+        },
+        deleteTask: (state, action) => { state.list.splice(action.payload) },
     }
 })
 
-export const {addTask,updateTask} = tasksSlice.actions;
+export const {addTask,updateTask, deleteTask} = tasksSlice.actions;
 
 export default tasksSlice.reducer;

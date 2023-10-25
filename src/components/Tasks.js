@@ -5,7 +5,7 @@ import { BsQuestionCircle } from 'react-icons/bs';
 import { MdRestore } from 'react-icons/md';
 import { ImCheckmark } from 'react-icons/im';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateTask } from '../store/tasksSlice';
+import { updateTask, deleteTask } from '../store/tasksSlice';
 
 
 export default function Tasks({ task, catogery }) {
@@ -25,6 +25,9 @@ export default function Tasks({ task, catogery }) {
   };
   const unCompletedTaskHandler = () => {
     dispatch(updateTask({index: index, updatedTask: {...task, Completed: false}}));
+  };
+  const deleteTaskHandler = () => {
+    dispatch(deleteTask(index));
   };
 
   return (
@@ -71,7 +74,7 @@ export default function Tasks({ task, catogery }) {
             ) : catogery === 'trash' ? (
               <div>
                 <a href="#" onClick={restoreTaskHandler} className="card-action rstr"><MdRestore className="mr-1" /> Restore Task</a>
-                <a href="#" className="card-action del"><VscError className="mr-1" /> Delete Task</a>
+                  <a href="#" onClick={deleteTaskHandler} className="card-action del"><VscError className="mr-1" /> Delete Task</a>
               </div>
             ) : (
               <div>
