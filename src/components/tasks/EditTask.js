@@ -6,10 +6,10 @@ import { FiEdit } from 'react-icons/fi';
 
 export default function EditTask() {
     const [selected, setSelected] = useState('Urgent');
-    
+
   return (
     <Popover className="relative">
-        <Popover.Button className="special-tab">
+        <Popover.Button>
             <a href="#" className="card-action edt"><FiEdit className="mr-1" /> Edit Task</a>
         </Popover.Button>
     <Transition
