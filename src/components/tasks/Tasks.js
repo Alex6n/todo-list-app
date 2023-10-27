@@ -10,7 +10,7 @@ import EditTask from './EditTask';
 
 export default function Tasks({ task, catogery }) {
   const list = useSelector(state => state.tasks.list);
-  const index = list.findIndex(item => item.Title == task.Title)
+  const index = list.findIndex(item => item.ID == task.ID)
   const dispatch = useDispatch();
   
   const removeTaskHandler = () => {

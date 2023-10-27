@@ -20,8 +20,8 @@ export default function Main() {
 
       <Tab.Group>
         <div className="sticky flex flex-col items-center pb-4 top-0 bg-azure-radiance-400">
-        <Tabs />
-        <Filters />
+          <Tabs />
+          <Filters />
         </div>
         <Tab.Panels>
           <Tab.Panel>

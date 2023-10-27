@@ -9,9 +9,9 @@ export default function EditTask() {
 
   return (
     <Popover className="relative">
-        <Popover.Button>
-            <a href="#" className="card-action edt"><FiEdit className="mr-1" /> Edit Task</a>
-        </Popover.Button>
+      <Popover.Button>
+        <a href="#" className="card-action edt"><FiEdit className="mr-1" /> Edit Task</a>
+      </Popover.Button>
     <Transition
       as={Fragment}
       enter="transition ease-out duration-200"

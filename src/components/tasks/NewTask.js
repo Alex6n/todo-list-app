@@ -12,6 +12,7 @@ export default function NewTask() {
 
   const newTaskHandler = () => {
     dispatch(addTask({
+      ID: Date.now().toString(36) + Math.random().toString(36).slice(2),
       Title: document.getElementById('task-name').value,
       Describtion: document.getElementById('task-desc').value,
       Priority: selected,
