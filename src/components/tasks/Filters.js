@@ -2,8 +2,8 @@ import { useState } from "react";
 
 export default function Filters() {
   const [tags, setTags] = useState({
-    urgent: false,
-    strategic: false,
+    urgent: true,
+    strategic: true,
     pressing: true,
     optional: true
   });

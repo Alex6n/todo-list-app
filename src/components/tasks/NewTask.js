@@ -1,33 +1,44 @@
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { Popover, Transition, Listbox } from '@headlessui/react';
 import { GrFormAdd } from "react-icons/gr";
 import { ChevronUpDownIcon } from '@heroicons/react/20/solid'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addTask } from '../../store/tasksSlice';
-
+import { updatePriority, updateExpectedBy, updateTitle, resetTitle, updateApplied } from '../../store/createSlice';
 
 export default function NewTask() {
   const dispatch = useDispatch();
-  const [selected, setSelected] = useState('Urgent');
+  const title = useSelector(state => state.state.title);
+  const priority = useSelector(state => state.state.priority);
+  const expectedBy = useSelector(state => state.state.expectedBy);  
+  const applied = useSelector(state => state.state.applied);  
 
+  
   const newTaskHandler = () => {
-    dispatch(addTask({
-      ID: Date.now().toString(36) + Math.random().toString(36).slice(2),
-      Title: document.getElementById('task-name').value,
-      Describtion: document.getElementById('task-desc').value,
-      Priority: selected,
-      ExpectedBy: document.getElementById('expectedby').value,
-      Icon: '../../assets/task-template.png',
-      CreatedOn: new Date().toISOString().slice(0, 10),
-      Completed: false,
-      Trash: false,
-      User: 'Alex'
-    }))
+    if (document.getElementById('task-name').value.length > 0) {
+      dispatch(addTask({
+        ID: Date.now().toString(36) + Math.random().toString(36).slice(2),
+        Title: title,
+        Describtion: document.getElementById('task-desc').value,
+        Priority: priority,
+        ExpectedBy: expectedBy,
+        Icon: '../../assets/task-template.png',
+        CreatedOn: new Date().toISOString().slice(0, 10),
+        Completed: false,
+        Trash: false,
+        User: 'Alex'
+      }))
+    } else dispatch(updateApplied(true))
   }
   
+  const resetHandler = () => {
+    dispatch(updateApplied(false))
+    dispatch(resetTitle())
+  }
+
   return (
     <Popover className="relative">
-      <Popover.Button className="special-tab">
+      <Popover.Button onClick={resetHandler} className="special-tab">
         <GrFormAdd />New task
       </Popover.Button>
       <Transition
@@ -45,7 +56,8 @@ export default function NewTask() {
               <form>
                 <div className="mb-3 grid grid-wrap">
                   <label className="h-fit self-end">Title :</label>
-                  <input type="text" id="task-name" className='rounded-lg p-2 bg-azure-radiance-200' required="required" />
+                  <p className={`text-red-600 font-light text-xs ${applied || 'hidden'}`}>this field is required</p>
+                  <input type="text" id="task-name" onChange={(e) => dispatch(updateTitle(e.target.value))} className='rounded-lg p-2 bg-azure-radiance-200' />
                 </div>
                 <div className="mb-3 grid grid-cols-1">
                   <label>Description :</label>
@@ -53,15 +65,15 @@ export default function NewTask() {
                 </div>
                 <div className="mb-3">
                   <label>Expected By :</label>
-                  <input type="date" id="expectedby" className="bg-sky-50/0" />
+                  <input type="date" id="expectedby" onChange={(date) => dispatch(updateExpectedBy(date.target.value))} value={expectedBy} min={new Date().toISOString().slice(0, 10)} className="bg-sky-50/0" />
                 </div>
                 <div className="mb-3 flex gap-2">
                   <label className="mt-2">Priority :</label>
                   <div className=''>
-                    <Listbox onChange={setSelected} value={selected}>
+                    <Listbox onChange={(value) => dispatch(updatePriority(value))} value={priority}>
                       <div className="fixed mt-1">
                         <Listbox.Button className="relative w-full cursor-default rounded-lg bg-azure-radiance-200 py-2 pl-3 pr-10 text-left focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
-                          <span className="block truncate">{selected}</span>
+                          <span className="block truncate">{priority}</span>
                           <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                             <ChevronUpDownIcon
                               className="h-5 w-5 text-gray-400"
@@ -91,7 +103,7 @@ export default function NewTask() {
                   <input type="file" id="myfile" name="myfile" />
                 </div>
                 <div className="flex flex-col">
-                  <a href='#' onClick={newTaskHandler} className="special-tab content-center">
+                  <a href='#' onClick={newTaskHandler} className={`special-tab ${title.length > 0 || 'cursor-not-allowed'}`}>
                     <GrFormAdd />Create a new task
                   </a>
                 </div>

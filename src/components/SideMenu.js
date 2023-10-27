@@ -10,7 +10,7 @@ function SideMenu() {
   const username = 'Alex'//useSelector((state) => state.user.username);
 
   return (
-    <div className="hidden z-50 sticky sm:grid grid-rows-5 h-screen p-3 w-16 bg-azure-radiance-950 text-azure-radiance-100">
+    <div className="hidden z-50 sticky lg:grid grid-rows-5 h-screen p-3 w-16 bg-azure-radiance-950 text-azure-radiance-100">
 
       {/* User Section */}
       <div className="border-b section mt-3">
