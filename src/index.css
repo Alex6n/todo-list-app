@@ -4,13 +4,13 @@
 
 @layer components {
     .tab {
-        @apply flex items-center rounded-lg px-3 py-2 hover:shadow ui-selected:shadow ui-selected:bg-white ui-not-selected:hover:bg-white hover:text-gray-700 focus:outline-none
+        @apply flex items-center rounded-lg px-3 py-2 hover:shadow ui-selected:shadow ui-selected:bg-white ui-not-selected:hover:bg-white hover:text-gray-700 focus:outline-none transition-colors duration-300
     }    
     .filter {
-        @apply flex items-center focus:outline-none border border-gray-600 border-opacity-30
+        @apply flex items-center focus:outline-none border border-gray-600 border-opacity-30 transition-all duration-500
     }
     .special-tab {
-        @apply flex items-center rounded-lg px-3 py-2 bg-azure-radiance-200 hover:bg-azure-radiance-300 hover:text-gray-700 transition
+        @apply flex items-center rounded-lg px-3 py-2 bg-azure-radiance-200 hover:bg-azure-radiance-300 hover:text-gray-700 transition-colors duration-300
     }
     .section {
         @apply border-opacity-30 border-azure-radiance-100 mb-7
@@ -47,5 +47,8 @@
     }
     .optional {
         @apply bg-azure-radiance-optional
+    }
+    .icon {
+        @apply w-5 mr-1
     }
 };

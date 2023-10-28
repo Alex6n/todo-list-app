@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { Popover, Transition, Listbox } from '@headlessui/react';
-import { GrFormAdd } from "react-icons/gr";
+import { PlusIcon, PlusCircleIcon } from "@heroicons/react/20/solid";
 import { ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { useDispatch, useSelector } from 'react-redux';
 import { addTask } from '../../store/tasksSlice';
@@ -18,7 +18,7 @@ export default function NewTask() {
         Describtion: document.getElementById('task-desc').value,
         Priority: priority,
         ExpectedBy: expectedBy,
-        Icon: '../../assets/task-template.png',
+        Icon: 'task-template.png',
         CreatedOn: new Date().toISOString().slice(0, 10),
         Completed: false,
         Trash: false,
@@ -35,14 +35,14 @@ export default function NewTask() {
   return (
     <Popover className="relative">
       <Popover.Button onClick={resetHandler} className="special-tab">
-        <GrFormAdd />New task
+        <PlusIcon className='icon' />New task
       </Popover.Button>
       <Transition
         as={Fragment}
-        enter="transition ease-out duration-200"
-        enterFrom="opacity-0 translate-y-1"
+        enter="transition ease-out duration-500"
+        enterFrom="opacity-0 translate-y-5"
         enterTo="opacity-100 translate-y-0"
-        leave="transition ease-in duration-150"
+        leave="transition ease-in duration-200"
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-1"
       >
@@ -79,6 +79,9 @@ export default function NewTask() {
                           </Listbox.Button>
                         <Transition
                           as={Fragment}
+                          enter="transition ease-in duration-150"
+                          enterFrom="opacity-0"
+                          enterTo="opacity-100"
                           leave="transition ease-in duration-100"
                           leaveFrom="opacity-100"
                           leaveTo="opacity-0"
@@ -100,7 +103,7 @@ export default function NewTask() {
                 </div>
                 <div className="flex flex-col">
                   <a href='#' onClick={newTaskHandler} className={`special-tab ${title.length > 0 || 'cursor-not-allowed'}`}>
-                    <GrFormAdd />Create a new task
+                    <PlusCircleIcon className='icon' />Create a new task
                   </a>
                 </div>
 

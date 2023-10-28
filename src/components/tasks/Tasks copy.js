@@ -1,3 +1,7 @@
+/*
+
+
+
 import { LuDelete } from 'react-icons/lu';
 import { VscError } from 'react-icons/vsc';
 import { BsQuestionCircle } from 'react-icons/bs';
@@ -29,10 +33,6 @@ export default function Tasks({ task, catogery }) {
     dispatch(deleteTask(index));
   };
 
-  const instantEdtHandler = (item) => {
-    dispatch(updateTask({ index: index, updatedTask: item }))
-  }
-
   return (
     <div className="max-w-3xl mt-2 p-4 bg-azure-radiance-200 rounded-3xl shadow-md">
       
@@ -40,17 +40,17 @@ export default function Tasks({ task, catogery }) {
 
         <div className="card-devider">
           <img
-            className="h-40 pr-1 rounded-xl object-cover justify-self-center"
-            src={require(`../../assets/${task.Icon}`)}
+            className="h-40 justify-self-center"
+            src={require('../../assets/task-template.png')}
             alt="Task Icon"
           ></img>
         </div>
         
         <div className="col-span-2 max-w-fit card-devider">
-          <div className="mt-0 ">
-              <input onChange={(e) => instantEdtHandler(e.target.value)} type="text" className="font-extrabold text-lg bg-transparent outline-none ring-0" value={task.Title}/>
+          <div className="mt-0 whitespace-wrap">
+              <p className="font-extrabold text-xl">{task.Title}</p>
             <div className="overflow-scroll h-28 max-w-xl">
-              <textarea className="font-normal text-sm whitespace-pre-wrap bg-transparent outline-none ring-0 w-full" value={task.Describtion}/>
+              <p className="font-normal text-base">{task.Describtion}</p>
             </div>
           </div>
           <div className="font-normal flex justify-between text-sm h-fit w-96">
@@ -94,3 +94,8 @@ export default function Tasks({ task, catogery }) {
     </div>
   );
 }
+
+
+
+
+*/
