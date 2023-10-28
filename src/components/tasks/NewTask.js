@@ -8,14 +8,10 @@ import { updatePriority, updateExpectedBy, updateTitle, resetTitle, updateApplie
 
 export default function NewTask() {
   const dispatch = useDispatch();
-  const title = useSelector(state => state.state.title);
-  const priority = useSelector(state => state.state.priority);
-  const expectedBy = useSelector(state => state.state.expectedBy);  
-  const applied = useSelector(state => state.state.applied);  
+  const { title, priority, expectedBy, applied } = useSelector(state => state.state);
 
-  
   const newTaskHandler = () => {
-    if (document.getElementById('task-name').value.length > 0) {
+    if (title.length > 0) {
       dispatch(addTask({
         ID: Date.now().toString(36) + Math.random().toString(36).slice(2),
         Title: title,
