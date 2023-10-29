@@ -45,7 +45,7 @@ export default function NewTask() {
         leave="transition ease-in duration-200"
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-1"
-      >+
+      >
         <Popover.Panel className="absolute left-1/2 mt-2 -translate-x-1/2 transform">
           <div className="overflow-auto rounded-lg shadow-2xl ring-1 ring-black ring-opacity-5">
             <div className="relative bg-gradient-to-tr from-azure-radiance-400 to-azure-radiance-300 p-7">

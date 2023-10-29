@@ -34,7 +34,7 @@ export default function Main() {
     <div className="bg-gradient-to-tr from-azure-radiance-400 to-azure-radiance-200 h-screen w-screen overflow-auto">
 
       <Tab.Group>
-        <div className="sticky flex flex-col items-center pb-4 top-0 bg-azure-radiance-400">
+        <div className="sticky z-40 flex flex-col items-center pb-4 top-0 bg-azure-radiance-400">
           <Tabs />
           <Filters />
         </div>
