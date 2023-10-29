@@ -45,7 +45,7 @@ export default function NewTask() {
         leave="transition ease-in duration-200"
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-1"
-      >
+      >+
         <Popover.Panel className="absolute left-1/2 mt-2 -translate-x-1/2 transform">
           <div className="overflow-auto rounded-lg shadow-2xl ring-1 ring-black ring-opacity-5">
             <div className="relative bg-gradient-to-tr from-azure-radiance-400 to-azure-radiance-300 p-7">
@@ -53,7 +53,8 @@ export default function NewTask() {
                 <div className="mb-3 grid grid-wrap">
                   <label className="h-fit self-end">Title :</label>
                   <p className={`text-red-600 font-light text-xs ${applied || 'hidden'}`}>this field is required</p>
-                  <input type="text" id="task-name" onChange={(e) => dispatch(updateTitle(e.target.value))} className='rounded-lg p-2 bg-azure-radiance-200' />
+                  <input type="text" id="task-name" onChange={(e) => dispatch(updateTitle(e.target.value))}
+                    className='rounded-lg p-2 bg-azure-radiance-200' />
                 </div>
                 <div className="mb-3 grid grid-cols-1">
                   <label>Description :</label>
@@ -61,7 +62,8 @@ export default function NewTask() {
                 </div>
                 <div className="mb-3">
                   <label>Expected By :</label>
-                  <input type="date" id="expectedby" onChange={(date) => dispatch(updateExpectedBy(date.target.value))} value={expectedBy} min={new Date().toISOString().slice(0, 10)} className="bg-sky-50/0" />
+                  <input type="date" id="expectedby" onChange={(date) => dispatch(updateExpectedBy(date.target.value))}
+                    value={expectedBy} min={new Date().toISOString().slice(0, 10)} className="bg-sky-50/0" />
                 </div>
                 <div className="mb-3 flex gap-2">
                   <label className="mt-2">Priority :</label>
