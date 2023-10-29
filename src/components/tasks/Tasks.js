@@ -9,22 +9,18 @@ export default function Tasks({ task, catogery }) {
   const index = list.findIndex(item => item.ID == task.ID)
   const dispatch = useDispatch();
   
-
-  const { urgent, strategic, pressing, optional } = useSelector(state => state.filters)
-
   Object.keys(edit).length < 1 && dispatch(initiateEdit(task))
-  
 
-  return (
+  if (Object.keys(edit).length > 0 ) return (
     <div className="max-w-3xl mt-2 p-4 bg-azure-radiance-200 rounded-3xl shadow-md">
       
       <div className="grid grid-cols-4 gap-3">
 
-        <div className="card-devider">
-          <a className="absolute text-6xl transition-opacity duration-300 hover:opacity-100 opacity-0 p-12 bg-slate-50 bg-opacity-40 h-40 w-50 rounded-xl">
+        <div className="card-devider duration-300">
+          <a className="absolute text-6xl transition-opacity hover:opacity-100 opacity-0 p-12 rounded-xl">
             <AiOutlinePlusCircle/>
           </a>
-          <img className="h-40 pr-1 rounded-xl object-cover justify-self-center"
+          <img className="h-40 pr-1 rounded-xl object-cover justify-self-center transition-opacity duration-300 hover:opacity-30"
             src={require(`../../assets/${task.Icon}`)}
             alt="Task Icon"
           />
@@ -42,7 +38,8 @@ export default function Tasks({ task, catogery }) {
           <div>
             <div className="font-normal flex justify-between text-xs h-fit w-96">
               <p>Expected By:
-              <input type="date" onChange={(e) => dispatch(instantExpectedBy(e.target.value))} value={edit.ExpectedBy} min={new Date().toISOString().slice(0, 10)} className="bg-sky-50/0" /></p>
+                <input type="date" onChange={(e) => dispatch(instantExpectedBy(e.target.value))} value={edit.ExpectedBy}
+                  min={new Date().toISOString().slice(0, 10)} className="bg-sky-50/0" /></p>
               <p>Created On: {task.CreatedOn}</p>
             </div>
           </div>
