@@ -8,7 +8,7 @@ import { updatePriority, updateExpectedBy, updateTitle, resetTitle, updateApplie
 
 export default function NewTask() {
   const dispatch = useDispatch();
-  const { title, priority, expectedBy, applied } = useSelector(state => state.state);
+  const { title, priority, expectedBy, applied } = useSelector(state => state.create);
 
   const newTaskHandler = () => {
     if (title.length > 0) {

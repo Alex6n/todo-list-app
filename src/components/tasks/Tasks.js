@@ -1,37 +1,19 @@
-import { LuDelete } from 'react-icons/lu';
-import { VscError } from 'react-icons/vsc';
-import { BsQuestionCircle } from 'react-icons/bs';
-import { MdRestore } from 'react-icons/md';
-import { CgRemoveR } from 'react-icons/cg';
-import { HiPencilAlt } from 'react-icons/hi';
+import { AiOutlinePlusCircle } from 'react-icons/ai'; 
 import { ImCheckmark } from 'react-icons/im'; 
 import { useDispatch, useSelector } from 'react-redux';
-import { updateTask, deleteTask } from '../../store/tasksSlice';
+import { initiateEdit, instantTitle, instantDesc, instantExpectedBy, instantPriority, instantIcon, instantApplied } from '../../store/editSlice';
 
 export default function Tasks({ task, catogery }) {
   const list = useSelector(state => state.tasks.list);
+  const edit = useSelector(state => state.edit);
   const index = list.findIndex(item => item.ID == task.ID)
   const dispatch = useDispatch();
   
-  const removeTaskHandler = () => {
-    dispatch(updateTask({index: index, updatedTask: {...task, Trash: true}}));
-  };
-  const completeTaskHandler = () => {
-    dispatch(updateTask({index: index, updatedTask: {...task, Completed: true}}));
-  };
-  const restoreTaskHandler = () => {
-    dispatch(updateTask({index: index, updatedTask: {...task, Trash: false}}));
-  };
-  const inCompletedTaskHandler = () => {
-    dispatch(updateTask({index: index, updatedTask: {...task, Completed: false}}));
-  };
-  const deleteTaskHandler = () => {
-    dispatch(deleteTask(index));
-  };
 
-  const instantEdtHandler = (item) => {
-    dispatch(updateTask({ index: index, updatedTask: item }))
-  }
+  const { urgent, strategic, pressing, optional } = useSelector(state => state.filters)
+
+  Object.keys(edit).length < 1 && dispatch(initiateEdit(task))
+  
 
   return (
     <div className="max-w-3xl mt-2 p-4 bg-azure-radiance-200 rounded-3xl shadow-md">
@@ -39,53 +21,42 @@ export default function Tasks({ task, catogery }) {
       <div className="grid grid-cols-4 gap-3">
 
         <div className="card-devider">
-          <img
-            className="h-40 pr-1 rounded-xl object-cover justify-self-center"
+          <a className="absolute text-6xl transition-opacity duration-300 hover:opacity-100 opacity-0 p-12 bg-slate-50 bg-opacity-40 h-40 w-50 rounded-xl">
+            <AiOutlinePlusCircle/>
+          </a>
+          <img className="h-40 pr-1 rounded-xl object-cover justify-self-center"
             src={require(`../../assets/${task.Icon}`)}
             alt="Task Icon"
-          ></img>
+          />
         </div>
         
-        <div className="col-span-2 max-w-fit card-devider">
+        <div className="col-span-2 max-w-fit card-devider w-96">
           <div className="mt-0 ">
-              <input onChange={(e) => instantEdtHandler(e.target.value)} type="text" className="font-extrabold text-lg bg-transparent outline-none ring-0" value={task.Title}/>
+            <input onChange={(e) => dispatch(instantTitle(e.target.value))} type="text"
+              className="font-extrabold text-lg bg-transparent outline-none ring-0" value={edit.Title} />
             <div className="overflow-scroll h-28 max-w-xl">
-              <textarea className="font-normal text-sm whitespace-pre-wrap bg-transparent outline-none ring-0 w-full" value={task.Describtion}/>
+              <textarea onChange={(e) => dispatch(instantDesc(e.target.value))} rows="10"
+                className="font-normal text-sm whitespace-pre-wrap bg-transparent outline-none ring-0 w-full" value={edit.Describtion} />
             </div>
           </div>
-          <div className="font-normal flex justify-between text-sm h-fit w-96">
-          <p >Expected By: {task.ExpectedBy}</p>
-          <p className="mr-1">Created On: {task.CreatedOn}</p>
+          <div>
+            <div className="font-normal flex justify-between text-xs h-fit w-96">
+              <p>Expected By:
+              <input type="date" onChange={(e) => dispatch(instantExpectedBy(e.target.value))} value={edit.ExpectedBy} min={new Date().toISOString().slice(0, 10)} className="bg-sky-50/0" /></p>
+              <p>Created On: {task.CreatedOn}</p>
+            </div>
           </div>
         </div>
 
         <div>
-          <div className="flex justify-center mb-3 ">
-            <div className={
-              task.Priority == 'Urgent' ? "badge urgent" :
-              task.Priority == 'Strategic' ?  "badge strategic" :
-              task.Priority == 'Pressing' ?  "badge pressing" : "badge optional"
-            }>{task.Priority}</div>
+          <div className="flex justify-center mb-3">
+            <div className="mt-3 flex gap-1 text-sm font-bold">
+              <a href="#" onClick={() => dispatch(instantPriority())} className={`filter badge ${edit.Priority.toLowerCase()}`} >{edit.Priority}</a>
+            </div>
           </div>
 
           <div>
-            {catogery === 'completed' ? (
-              <div>
-                <a href="#" onClick={inCompletedTaskHandler} className="card-action del"><BsQuestionCircle className="mr-1" />Incomplete</a>
-                <a href="#" onClick={removeTaskHandler} className="card-action del"><LuDelete className="mr-1" /> Remove Task</a>
-              </div>
-            ) : catogery === 'trash' ? (
-              <div>
-                <a href="#" onClick={restoreTaskHandler} className="card-action rstr"><MdRestore className="mr-1" /> Restore Task</a>
-                  <a href="#" onClick={deleteTaskHandler} className="card-action del"><VscError className="mr-1" /> Delete Task</a>
-              </div>
-            ) : (
-              <div>
-                <a href="#" onClick={completeTaskHandler} className="card-action cmplt"><ImCheckmark className="mr-1" /> Mark Completed</a>
-                <a href="#" className="card-action edt"><HiPencilAlt className="mr-1 text-lg" /> Edit Task</a>
-                <a href="#" onClick={removeTaskHandler} className="card-action del"><CgRemoveR className="mr-1" /> Remove Task</a>
-              </div>
-            )}
+            <a href="#" className="card-action cmplt"><ImCheckmark className="mr-1" /> Apply Changes</a>
           </div>
 
         </div>
