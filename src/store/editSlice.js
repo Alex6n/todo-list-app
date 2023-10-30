@@ -7,21 +7,17 @@ export const editSlice = createSlice({
         initiateEdit: (state, action) => { state.push(action.payload) },
         instantUpdateTask: (state, action) => { 
             const { index, updatedTask } = action.payload;
-            state.list[index] = {...state.list[index], ...updatedTask}
+            state[index] = {...state[index], ...updatedTask}
         },
-        instantTitle: (state, action) => { state.Title = action.payload},
-        instantDesc: (state, action) => { state.Describtion = action.payload},
-        instantExpectedBy: (state, action) => { state.ExpectedBy = action.payload},
-        instantPriority: (state) => { 
-            state.Priority = state.Priority == 'Urgent' ? 'Strategic' : 
-                state.Priority == 'Strategic' ? 'Pressing' : 
-                    state.Priority == 'Pressing' ? 'Optional' : 'Urgent'
+        instantPriority: (state, action) => { 
+            state[action.payload].Priority = state[action.payload].Priority == 'Urgent' ? 'Strategic' : 
+            state[action.payload].Priority == 'Strategic' ? 'Pressing' : 
+            state[action.payload].Priority == 'Pressing' ? 'Optional' : 'Urgent'
         },
-        instantIcon: (state, action) => { state.Icon = action.payload },
         instantApplied: (state, action) => { state.applied = action.payload },
     }
 })
 
-export const { initiateEdit, instantTitle, instantDesc, instantExpectedBy, instantPriority, instantIcon, instantApplied, instantUpdateTask } = editSlice.actions;
+export const { initiateEdit, instantPriority, instantApplied, instantUpdateTask } = editSlice.actions;
 
 export default editSlice.reducer;

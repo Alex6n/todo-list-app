@@ -1,24 +1,21 @@
 import { AiOutlinePlusCircle } from 'react-icons/ai'; 
 import { ImCheckmark } from 'react-icons/im'; 
 import { useDispatch, useSelector } from 'react-redux';
-import { initiateEdit, instantTitle, instantDesc, instantExpectedBy, instantPriority, instantUpdateTask, instantIcon, instantApplied } from '../../store/editSlice';
+import { initiateEdit, instantPriority, instantUpdateTask, instantApplied } from '../../store/editSlice';
 import { updateTask } from '../../store/tasksSlice';
 
 export default function Edit({ task }) {
 
   const editList = useSelector(state => state.edit);
-  const edit = useSelector(state => state.edit).find(i => i.ID == task.ID);
+  const index = editList.findIndex(item => item.ID == task.ID)
+  const edit = editList[index];
 
   const dispatch = useDispatch();
   edit || dispatch(initiateEdit(task))
-  const index = editList.findIndex(edit)
-
-  const intantEdit = (change) => {
-    dispatch(instantUpdateTask({index: index, updatedTask: {...edit, change}}))
-  }
 
   const applyChangesHandler = () => {
-    dispatch(updateTask({index: index, updatedTask: {...task, State: 'show'}}));
+    dispatch(instantUpdateTask({index: index, updatedTask: {...edit, State: 'show'}}))
+    dispatch(updateTask({index: index, updatedTask: edit}));
   }
 
   if (edit) return (
@@ -38,16 +35,16 @@ export default function Edit({ task }) {
         
         <div className="col-span-2 max-w-fit card-devider w-96">
           <div className="mt-0 ">
-            <input onChange={(e) => intantEdit({Title: e.target.value})} type="text"
+            <input onChange={(e) => dispatch(instantUpdateTask({index: index, updatedTask: {...edit, Title: e.target.value}}))} type="text"
               className="font-extrabold text-lg bg-transparent outline-none ring-0" value={edit.Title} />
             <div className="overflow-scroll h-28 max-w-xl">
-              <textarea onChange={(e) => dispatch(instantDesc(e.target.value))} rows="5"
+              <textarea onChange={(e) => dispatch(instantUpdateTask({index: index, updatedTask: {...edit, Describtion: e.target.value}}))} rows="5"
                 className="font-normal text-sm whitespace-pre-wrap bg-transparent outline-none ring-0 w-full" value={edit.Describtion} />
             </div>
           </div>
             <div className="font-normal flex justify-between text-xs h-fit w-96 pr-3">
               <p>Expected By:
-                <input type="date" onChange={(e) => dispatch(instantExpectedBy(e.target.value))} value={edit.ExpectedBy}
+                <input type="date" onChange={(e) => dispatch(instantUpdateTask({index: index, updatedTask: {...edit, ExpectedBy: e.target.value}}))} value={edit.ExpectedBy}
                   min={new Date().toISOString().slice(0, 10)} className="bg-sky-50/0" /></p>
               <p>Created On: {task.CreatedOn}</p>
             </div>
@@ -56,7 +53,7 @@ export default function Edit({ task }) {
         <div className='flex flex-col items-center'>
           <div className="mb-5">
             <div className="mt-3 flex gap-1 text-sm font-bold">
-              <a href="#" onClick={() => dispatch(instantPriority())} className={`filter badge ${edit.Priority.toLowerCase()}`} >{edit.Priority}</a>
+              <a href="#" onClick={() => dispatch(instantPriority(index))} className={`filter badge ${edit.Priority.toLowerCase()}`} >{edit.Priority}</a>
             </div>
           </div>
 
