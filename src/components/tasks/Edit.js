@@ -1,22 +1,27 @@
 import { AiOutlinePlusCircle } from 'react-icons/ai'; 
 import { ImCheckmark } from 'react-icons/im'; 
 import { useDispatch, useSelector } from 'react-redux';
-import { initiateEdit, instantTitle, instantDesc, instantExpectedBy, instantPriority, instantIcon, instantApplied } from '../../store/editSlice';
+import { initiateEdit, instantTitle, instantDesc, instantExpectedBy, instantPriority, instantUpdateTask, instantIcon, instantApplied } from '../../store/editSlice';
 import { updateTask } from '../../store/tasksSlice';
 
-export default function Edit({ task, catogery }) {
-  const list = useSelector(state => state.tasks.list);
-  const edit = useSelector(state => state.edit);
-  const index = list.findIndex(item => item.ID == task.ID)
+export default function Edit({ task }) {
+
+  const editList = useSelector(state => state.edit);
+  const edit = useSelector(state => state.edit).find(i => i.ID == task.ID);
+
   const dispatch = useDispatch();
-  
-  (Object.keys(edit).length == 0) && dispatch(initiateEdit(task))
+  edit || dispatch(initiateEdit(task))
+  const index = editList.findIndex(edit)
+
+  const intantEdit = (change) => {
+    dispatch(instantUpdateTask({index: index, updatedTask: {...edit, change}}))
+  }
 
   const applyChangesHandler = () => {
     dispatch(updateTask({index: index, updatedTask: {...task, State: 'show'}}));
   }
 
-  if (Object.keys(edit).length != 0 ) return (
+  if (edit) return (
     <div className="max-w-3xl mt-2 p-4 bg-azure-radiance-200 rounded-3xl shadow-md">
       
       <div className="grid grid-cols-4 gap-3">
@@ -33,7 +38,7 @@ export default function Edit({ task, catogery }) {
         
         <div className="col-span-2 max-w-fit card-devider w-96">
           <div className="mt-0 ">
-            <input onChange={(e) => dispatch(instantTitle(e.target.value))} type="text"
+            <input onChange={(e) => intantEdit({Title: e.target.value})} type="text"
               className="font-extrabold text-lg bg-transparent outline-none ring-0" value={edit.Title} />
             <div className="overflow-scroll h-28 max-w-xl">
               <textarea onChange={(e) => dispatch(instantDesc(e.target.value))} rows="5"

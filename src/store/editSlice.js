@@ -2,9 +2,13 @@ import { createSlice } from "@reduxjs/toolkit"
 
 export const editSlice = createSlice({
     name: 'edit',
-    initialState: {},
+    initialState: [],
     reducers: {
-        initiateEdit: (state, action) => { Object.assign(state, action.payload)},
+        initiateEdit: (state, action) => { state.push(action.payload) },
+        instantUpdateTask: (state, action) => { 
+            const { index, updatedTask } = action.payload;
+            state.list[index] = {...state.list[index], ...updatedTask}
+        },
         instantTitle: (state, action) => { state.Title = action.payload},
         instantDesc: (state, action) => { state.Describtion = action.payload},
         instantExpectedBy: (state, action) => { state.ExpectedBy = action.payload},
@@ -18,6 +22,6 @@ export const editSlice = createSlice({
     }
 })
 
-export const { initiateEdit, instantTitle, instantDesc, instantExpectedBy, instantPriority, instantIcon, instantApplied } = editSlice.actions;
+export const { initiateEdit, instantTitle, instantDesc, instantExpectedBy, instantPriority, instantIcon, instantApplied, instantUpdateTask } = editSlice.actions;
 
 export default editSlice.reducer;
