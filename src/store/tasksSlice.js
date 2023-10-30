@@ -14,6 +14,7 @@ export const tasksSlice = createSlice({
                 CreatedOn: '2023-10-28',
                 Completed: false,
                 Trash: false,
+                State: 'show',
                 User: 'Alex'
               },
     ] },

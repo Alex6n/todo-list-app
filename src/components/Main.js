@@ -3,6 +3,7 @@ import Tabs from './tasks/Tabs'
 import Filters from './tasks/Filters'
 import Empty from './tasks/Empty'
 import Tasks from './tasks/Tasks'
+import Edit from './tasks/Edit'
 import { useSelector } from 'react-redux'
 
 
@@ -43,7 +44,9 @@ export default function Main() {
             <div className="flex flex-wrap gap-3">
               <div className="m-auto">
                 {todayTasks.length == 0 ? <div className='mt-28'><Empty text='No tasks for today!' /></div> :
-                  todayTasks.map((task, index) => { return (<Tasks key={index} task={task} />) })}
+                  todayTasks.map((task, index) => {
+                    return task.State == 'show' ? (<Tasks key={index} task={task} />) : (<Edit key={index} task={task} />)
+                  })}
               </div>
             </div>
           </Tab.Panel>
@@ -51,7 +54,9 @@ export default function Main() {
             <div className="flex flex-wrap gap-3">
               <div className="m-auto">
                 {weekTasks.length == 0 ? <div className='mt-28'><Empty text='No tasks for this week!' /></div> :
-                  weekTasks.map((task, index) => { return (<Tasks key={index} task={task} />) })}
+                  weekTasks.map((task, index) => {
+                    return task.State == 'show' ? (<Tasks key={index} task={task} />) : (<Edit key={index} task={task} />)
+                  })}
               </div>
                       </div>
           </Tab.Panel>
@@ -59,7 +64,9 @@ export default function Main() {
             <div className="flex flex-wrap gap-3">
               <div className="m-auto">
                 {allTasks.length == 0 ? <div className='mt-28'><Empty text='looks like your task list is empty!' /></div> :
-                  allTasks.map((task, index) => { return (<Tasks key={index} task={task} />) })}
+                  allTasks.map((task, index) => {
+                    return task.State == 'show' ? (<Tasks key={index} task={task} />) : (<Edit key={index} task={task} />) 
+                  })}
               </div>
             </div>
           </Tab.Panel>

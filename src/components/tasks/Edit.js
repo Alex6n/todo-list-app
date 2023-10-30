@@ -2,6 +2,7 @@ import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { ImCheckmark } from 'react-icons/im'; 
 import { useDispatch, useSelector } from 'react-redux';
 import { initiateEdit, instantTitle, instantDesc, instantExpectedBy, instantPriority, instantIcon, instantApplied } from '../../store/editSlice';
+import { updateTask } from '../../store/tasksSlice';
 
 export default function Edit({ task, catogery }) {
   const list = useSelector(state => state.tasks.list);
@@ -9,7 +10,11 @@ export default function Edit({ task, catogery }) {
   const index = list.findIndex(item => item.ID == task.ID)
   const dispatch = useDispatch();
   
-  dispatch(initiateEdit(task))
+  (Object.keys(edit).length == 0) && dispatch(initiateEdit(task))
+
+  const applyChangesHandler = () => {
+    dispatch(updateTask({index: index, updatedTask: {...task, State: 'show'}}));
+  }
 
   if (Object.keys(edit).length != 0 ) return (
     <div className="max-w-3xl mt-2 p-4 bg-azure-radiance-200 rounded-3xl shadow-md">
@@ -51,7 +56,7 @@ export default function Edit({ task, catogery }) {
           </div>
 
           <div className='flex flex-col justify-center'>
-            <a href="#" className="card-action cmplt"><ImCheckmark className="mr-1" /> Apply Changes</a>
+            <a href="#" onClick={applyChangesHandler} className="card-action cmplt"><ImCheckmark className="mr-1" /> Apply Changes</a>
           </div>
 
         </div>

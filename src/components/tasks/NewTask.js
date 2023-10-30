@@ -22,6 +22,7 @@ export default function NewTask() {
         CreatedOn: new Date().toISOString().slice(0, 10),
         Completed: false,
         Trash: false,
+        State: 'show',
         User: 'Alex'
       }))
     } else dispatch(updateApplied(true))
