@@ -9,7 +9,7 @@ export const tasksSlice = createSlice({
                 Title: 'Interview Preparation',
                 Describtion: '- Prepare your CV!\n- Prepare your selling speech.\n- Prepare some Ice Cream (Just in case)',
                 Priority: 'Urgent',
-                ExpectedBy: '2023-10-29',
+                ExpectedBy: '2023-10-31',
                 Icon: 'sadIceCream.jpg',
                 CreatedOn: '2023-10-28',
                 Completed: false,

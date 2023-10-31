@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
-import { LuListTodo, LuBellRing, LuHelpCircle } from "react-icons/lu";
+import { LuListTodo, LuHelpCircle } from "react-icons/lu";
 import { SlCalender } from "react-icons/sl";
 import { CgSearch } from "react-icons/cg";
 import { Listbox, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import AccountMenu from "./AccountMenu";
+import Notifications from "./menu/Notifications";
 
 function SideMenu() {
   const username = 'Alex'//useSelector((state) => state.user.username);
@@ -70,12 +71,7 @@ function SideMenu() {
       {/* Help Section */}
       <div className="row-span-3 section">
         <div className="flex justify-center">
-          <button
-            title="Notificatations"
-            className="p-2 text-2xl hover:text-azure-radiance-400 transition"
-          >
-            <LuBellRing />
-          </button>
+          <Notifications/>
         </div>
         <div className="flex justify-center">
           <button

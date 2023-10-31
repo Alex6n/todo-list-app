@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 export const createNewTaskSlice = createSlice({
-    name: 'edit',
+    name: 'create',
     initialState: {
         title: '',
         priority: 'Urgent',
