@@ -1,5 +1,5 @@
 import { Popover, Transition } from "@headlessui/react";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { LuSettings, LuBellRing } from "react-icons/lu";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { PiBellRingingDuotone } from "react-icons/pi";
@@ -10,9 +10,10 @@ import { updateSettings, updateShown } from "../../store/notificationsSlice";
 export default function Notifications() {
   const notifications = useSelector(state => state.notifications);
   const dispatch = useDispatch();
+  let [isOpen, setIsOpen] = useState(true)
 
   return (
-      <Popover className="relative">
+    <Popover open={isOpen} onClose={()=> console.log('closed')} className="relative">
           <Popover.Button className="p-2 text-2xl hover:text-azure-radiance-400 transition">
             <LuBellRing />
           </Popover.Button>
@@ -63,9 +64,9 @@ export default function Notifications() {
                             </div>
                           </div>
                           
-                          {notifications.items.length > 0 && notifications.items.map(notification => {
+                          {notifications.items.length > 0 && notifications.items.map((notification, index) => {
                             return (
-                              <div className={`${notification.read || 'hover:bg-azure-radiance-500 bg-azure-radiance-400'} flex flex-col justify-between h-12 hover:bg-azure-radiance-400 bg-azure-radiance-300 m-1 rounded-md`}>
+                              <div key={index} className={`${notification.read || 'hover:bg-azure-radiance-500 bg-azure-radiance-400'} flex flex-col justify-between h-12 hover:bg-azure-radiance-400 bg-azure-radiance-300 m-1 rounded-md`}>
                                 <div className="flex justify-between px-2 py-1 text-azure-radiance-700">
                                   <div>
                                     <p className="font-bold text-sm">{notification.title}</p>
