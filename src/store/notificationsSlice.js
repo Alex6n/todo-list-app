@@ -7,7 +7,7 @@ export const notificationsSlice = createSlice({
         settings: {
             browser: true,
             email: true,
-            telegeram: true,
+            telegram: true,
         },
         items: [
             {
