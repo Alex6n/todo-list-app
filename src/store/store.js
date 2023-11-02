@@ -3,6 +3,8 @@ import { tasksSlice } from "./tasksSlice";
 import { createNewTaskSlice } from "./createSlice";
 import { filtersSlice } from "./filtersSlice";
 import { editSlice } from "./editSlice";
+import { notificationsSlice } from "./notificationsSlice";
+
 
 
 let store = configureStore({
@@ -11,6 +13,7 @@ let store = configureStore({
         create: createNewTaskSlice.reducer,
         filters: filtersSlice.reducer,
         edit: editSlice.reducer,
+        notifications: notificationsSlice.reducer,
     }
 });
 
