@@ -1,4 +1,4 @@
-import { Popover, Transition } from "@headlessui/react";
+import { Popover, Transition, Listbox } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { LuSettings, LuBellRing } from "react-icons/lu";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -10,10 +10,9 @@ import { updateSettings, updateShown } from "../../store/notificationsSlice";
 export default function Notifications() {
   const notifications = useSelector(state => state.notifications);
   const dispatch = useDispatch();
-  let [isOpen, setIsOpen] = useState(true)
 
   return (
-    <Popover open={isOpen} onClose={()=> console.log('closed')} className="relative">
+    <Popover className="relative">
           <Popover.Button className="p-2 text-2xl hover:text-azure-radiance-400 transition">
             <LuBellRing />
           </Popover.Button>
@@ -32,7 +31,7 @@ export default function Notifications() {
                         <a href='#' onClick={() => dispatch(updateShown('settings'))} className={`${notifications.shown == 'notifications' || 'hidden'} mt-1 hover:text-azure-radiance-50 transition-colors duration-300`}><LuSettings/></a>
                         <a href='#' onClick={() => dispatch(updateShown('notifications'))} className={`${notifications.shown == 'settings' || 'hidden'} mt-1 hover:text-azure-radiance-50 transition-colors duration-300`}><IoMdArrowRoundBack/></a>
                       </div>
-                      <div className="relative overflow-scroll bg-gradient-to-tr from-azure-radiance-300 to-azure-radiance-100 h-64">
+                      <div className="overflow-scroll bg-gradient-to-tr from-azure-radiance-300 to-azure-radiance-100 h-64">
                         
                         
                         <div className={`grid h-64 ${notifications.shown == 'settings' || 'hidden'}`}>
@@ -72,7 +71,25 @@ export default function Notifications() {
                                     <p className="font-bold text-sm">{notification.title}</p>
                                     <p className="text-xs">{notification.description}</p>
                                   </div>
-                                  <a href="#" className="mt-3 text-md"><BsThreeDotsVertical/></a>
+                                  <Listbox>
+                                    <div className="absolute mt-2 left-56 overflow-visible">
+                                      <Listbox.Button>
+                                        <a href="#" className="text-md"><BsThreeDotsVertical/></a>
+                                      </Listbox.Button>
+                                      <Transition
+                                        enter="transition ease-out duration-500"
+                                        enterFrom="opacity-0 -translate-y-5"
+                                        enterTo="opacity-100 translate-y-0"
+                                        leave="transition ease-in duration-200"
+                                        leaveFrom="opacity-100 translate-y-0"
+                                        leaveTo="opacity-0 -translate-y-5">
+                                      <Listbox.Options className='fixed rounded-lg z-50 text-xs bg-azure-radiance-200'>
+                                        <a href="#" className="">Mark As Read</a>
+                                        <a href="#" className="">Remove this notification</a>
+                                      </Listbox.Options>
+                                      </Transition>
+                                    </div>
+                                  </Listbox>
                                 </div>
                               </div>
                             )
