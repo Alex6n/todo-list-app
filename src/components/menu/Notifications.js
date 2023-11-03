@@ -76,7 +76,7 @@ export default function Notifications() {
                                       <Listbox.Button>
                                         <a href="#" className="z-10 text-md"><BsThreeDotsVertical/></a>
                                       </Listbox.Button>
-\                                      <Listbox.Options className='absolute z-20 rounded-lg text-xs bg-azure-radiance-200 p-1'>
+                                      <Listbox.Options className='absolute z-20 rounded-lg text-xs bg-azure-radiance-200 p-1'>
                                         <a href="#" onClick={()=> dispatch(removeNotifications(index))} className="rounded-md w-32">Hide this notification</a>
                                       </Listbox.Options>
                                     </div>
