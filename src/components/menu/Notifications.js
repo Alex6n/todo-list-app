@@ -5,7 +5,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { PiBellRingingDuotone } from "react-icons/pi";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
-import { updateSettings, updateShown } from "../../store/notificationsSlice";
+import { removeNotifications, updateSettings, updateShown } from "../../store/notificationsSlice";
 
 export default function Notifications() {
   const notifications = useSelector(state => state.notifications);
@@ -74,20 +74,11 @@ export default function Notifications() {
                                   <Listbox>
                                     <div className="absolute mt-2 left-56 overflow-visible">
                                       <Listbox.Button>
-                                        <a href="#" className="text-md"><BsThreeDotsVertical/></a>
+                                        <a href="#" className="z-10 text-md"><BsThreeDotsVertical/></a>
                                       </Listbox.Button>
-                                      <Transition
-                                        enter="transition ease-out duration-500"
-                                        enterFrom="opacity-0 -translate-y-5"
-                                        enterTo="opacity-100 translate-y-0"
-                                        leave="transition ease-in duration-200"
-                                        leaveFrom="opacity-100 translate-y-0"
-                                        leaveTo="opacity-0 -translate-y-5">
-                                      <Listbox.Options className='fixed rounded-lg z-50 text-xs bg-azure-radiance-200'>
-                                        <a href="#" className="">Mark As Read</a>
-                                        <a href="#" className="">Remove this notification</a>
+\                                      <Listbox.Options className='absolute z-20 rounded-lg text-xs bg-azure-radiance-200 p-1'>
+                                        <a href="#" onClick={()=> dispatch(removeNotifications(index))} className="rounded-md w-32">Hide this notification</a>
                                       </Listbox.Options>
-                                      </Transition>
                                     </div>
                                   </Listbox>
                                 </div>
