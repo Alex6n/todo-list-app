@@ -42,32 +42,49 @@ export default function Help() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
-                    Help Section
+                <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
+                    How does this app work?
                   </Dialog.Title>
-                  <div className="mt-2">
+                  <div className="mt-1 mb-3">
                     <p className="text-sm text-gray-500">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                    molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                    numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                    optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-                    obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-                    nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-                    tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-                    quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos 
-                    sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
-                    recusandae alias error harum maxime adipisci amet laborum.
+                      This app utilizes the Eisenhower Matrix method to help you efficiently manage your tasks. It allows you to categorize them
+                      based on their urgency and importance, enabling you to prioritize effectively.
                     </p>
                   </div>
+                  <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
+                    How to choose the right priority for your task?
+                  </Dialog.Title>
+                  <div className="mt-1 mb-3">
+                    <p className="text-sm text-gray-500 whitespace-pre-wrap">According to the Eisenhower Matrix,
+                      tasks can be classified into four categories:<br className="mb-2"/>
+                      <div className="badge urgent inline-block">Urgent and Important</div> Handle these tasks immediately.<br className="mb-2" />
+                      <div className="badge strategic inline-block">Important but Not Urgent</div> Schedule these tasks for later.<br className="mb-2" />
+                      <div className="badge pressing inline-block">Urgent but Not Important</div> Delegate these tasks if possible.<br className="mb-2" />
+                      <div className="badge optional inline-block">Not Urgent and Not Important</div> Consider eliminating or deferring these tasks to free up your time
+                      for more critical activities.
+                    </p>
 
-                  <div className="mt-4">
+                  </div>
+
+                  <div className="mt-4 flex justify-end gap-1">
+                  <button
+                      type="button"
+                      onClick={()=> window.open('https://asana.com/resources/eisenhower-matrix', '_blank')}
+                      className="inline-flex justify-center rounded-md border border-transparent bg-azure-radiance-100 px-4 py-2 text-sm 
+                      font-medium text-azure-radiance-900 hover:bg-azure-radiance-200 focus:outline-none focus-visible:ring-2
+                       focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                    >
+                      Learn More
+                    </button>
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-azure-radiance-100 px-4 py-2 text-sm font-medium text-azure-radiance-900 hover:bg-azure-radiance-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-azure-radiance-200 px-4 py-2 text-sm 
+                      font-medium text-azure-radiance-950 hover:bg-azure-radiance-300 focus:outline-none focus-visible:ring-2
+                       focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={closeModal}
                     >
-                      Got it, thanks!
+                      Got it!
                     </button>
                   </div>
                 </Dialog.Panel>
