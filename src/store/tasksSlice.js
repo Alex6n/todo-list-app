@@ -22,7 +22,7 @@ export const tasksSlice = createSlice({
         addTask: (state, action) => { state.list.push(action.payload) },
         updateTask: (state, action) => { 
             const { index, updatedTask } = action.payload;
-            state.list[index] = {...state.list[index], ...updatedTask}
+            state.list[index] = { ...state.list[index], ...updatedTask }
         },
         deleteTask: (state, action) => { state.list.splice(action.payload, 1) },
     }
