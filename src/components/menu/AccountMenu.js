@@ -10,6 +10,6 @@ export default function AccountMenu() {
         Settings</Listbox.Option>
       <Listbox.Option className="cursor-default select-none py-2 hover:pressing hover:text-white" value="Pressing">
         Logout</Listbox.Option>
-      </div>
+    </div>
   )
 }
