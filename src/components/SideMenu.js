@@ -1,11 +1,11 @@
 import { LuListTodo } from "react-icons/lu";
 import { SlCalender } from "react-icons/sl";
-import { CgSearch } from "react-icons/cg";
 import { Listbox, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import AccountMenu from "./menu/AccountMenu";
 import Notifications from "./menu/Notifications";
 import Help from "./menu/Help";
+import Search from "./menu/Search";
 
 function SideMenu() {
   const username = 'Alex'//useSelector((state) => state.user.username);
@@ -58,24 +58,13 @@ function SideMenu() {
             <SlCalender />
           </button>
         </div>
-        <div className="flex justify-center">
-          <button
-            title="Search"
-            className="p-2 mb-7 text-2xl hover:text-azure-radiance-400 transition"
-          >
-            <CgSearch />
-          </button>
-        </div>
+        <Search/>
       </div>
 
       {/* Help Section */}
-      <div className="row-span-3 section">
-        <div className="flex justify-center">
+      <div className="section">
           <Notifications/>
-        </div>
-        <div className="flex justify-center">
           <Help/>
-        </div>
       </div>
 
     </div>

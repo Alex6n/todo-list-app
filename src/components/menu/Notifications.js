@@ -1,5 +1,5 @@
 import { Popover, Transition, Listbox } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { LuSettings, LuBellRing } from "react-icons/lu";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { PiBellRingingDuotone } from "react-icons/pi";
@@ -29,15 +29,15 @@ export default function Notifications() {
                       <div className="relative flex justify-between font-bold text-azure-radiance-900 bg-gradient-to-tr
                        from-azure-radiance-300 to-azure-radiance-400 py-3 px-4">
                         <p>Notifications</p>
-                        <a href='#' onClick={() => dispatch(updateShown('settings'))} className={`${notifications.shown == 'notifications' 
-                        || 'hidden'} mt-1 hover:text-azure-radiance-50 transition-colors duration-300`}><LuSettings/></a>
-                        <a href='#' onClick={() => dispatch(updateShown('notifications'))} className={`${notifications.shown == 'settings' 
-                        || 'hidden'} mt-1 hover:text-azure-radiance-50 transition-colors duration-300`}><IoMdArrowRoundBack/></a>
+                        <button href='#' onClick={() => dispatch(updateShown('settings'))} className={`${notifications.shown === 'notifications' 
+                        || 'hidden'} mt-1 hover:text-azure-radiance-50 transition-colors duration-300`}><LuSettings/></button>
+                        <button href='#' onClick={() => dispatch(updateShown('notifications'))} className={`${notifications.shown === 'settings' 
+                        || 'hidden'} mt-1 hover:text-azure-radiance-50 transition-colors duration-300`}><IoMdArrowRoundBack/></button>
                       </div>
                       <div className="overflow-scroll bg-gradient-to-tr from-azure-radiance-300 to-azure-radiance-100 h-64">
                         
                         
-                        <div className={`grid h-64 ${notifications.shown == 'settings' || 'hidden'}`}>
+                        <div className={`grid h-64 ${notifications.shown === 'settings' || 'hidden'}`}>
                           <div className="ml-4 mt-10 opacity-80 font-bold text-azure-radiance-900">
                           <label className="relative inline-flex items-center cursor-pointer">
                             <input onChange={() => dispatch(updateSettings('browser'))} type="checkbox" className="sr-only peer" 
@@ -69,7 +69,7 @@ export default function Notifications() {
                           </div>
                         </div>
               
-                        <div className={notifications.shown == 'notifications' || 'hidden'}>
+                        <div className={notifications.shown === 'notifications' || 'hidden'}>
                           
                           <div className={`grid h-64 ${notifications.items.length < 1 || 'hidden'}`}>
                             <div className="flex flex-col justify-center items-center opacity-80 font-bold text-azure-radiance-900">
@@ -90,11 +90,11 @@ export default function Notifications() {
                                   <Listbox>
                                     <div className="absolute mt-2 left-56 overflow-visible">
                                       <Listbox.Button>
-                                        <a href="#" className="z-10 text-md"><BsThreeDotsVertical/></a>
+                                        <button href="#" className="z-10 text-md"><BsThreeDotsVertical/></button>
                                       </Listbox.Button>
                                       <Listbox.Options className='absolute z-20 rounded-lg text-xs bg-azure-radiance-200 p-1'>
-                                        <a href="#" onClick={() => dispatch(removeNotifications(index))} className="rounded-md w-32">
-                                          Hide this notification</a>
+                                        <button href="#" onClick={() => dispatch(removeNotifications(index))} className="rounded-md w-32">
+                                          Hide this notification</button>
                                       </Listbox.Options>
                                     </div>
                                   </Listbox>
