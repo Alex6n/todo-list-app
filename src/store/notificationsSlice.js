@@ -26,7 +26,10 @@ export const notificationsSlice = createSlice({
         updateShown: (state, action) => { state.shown = action.payload },
         updateSettings: (state, action) => { state.settings[action.payload] = !state.settings[action.payload] },
         addNotifications: (state, action) => { state.items.push(action.payload) },
-        markNotifications: (state, action) => { state.items[action.payload] = { ...state.items[action.payload], read: !state.items[action.payload].read } },
+        markNotifications: (state, action) => {
+            state.items[action.payload] =
+            { ...state.items[action.payload], read: !state.items[action.payload].read }
+        },
         removeNotifications: (state, action) => { state.items.splice(action.payload, 1) }
     }
 })

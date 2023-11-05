@@ -27,7 +27,8 @@ export default function Edit({ task }) {
       <div className="grid grid-cols-4 gap-3">
 
         <div className="card-devider group flex flex-col items-center justify-center"> {/* selecting image should be done */}
-          <a className="absolute text-6xl text-gray-800 transition-opacity group-hover:opacity-100 opacity-0 duration-500"> {/* absolute class to need to be fixed */}
+          <a className="absolute text-6xl text-gray-800 transition-opacity group-hover:opacity-100 opacity-0 duration-500">
+            {/* absolute class to need to be fixed */}
             <AiOutlinePlusCircle/>
           </a>
           <img className="h-40 pr-1 rounded-xl object-cover justify-self-center transition-opacity duration-300 group-hover:opacity-30"
@@ -47,7 +48,8 @@ export default function Edit({ task }) {
           </div>
             <div className="font-normal flex justify-between text-xs h-fit w-96 pr-3">
               <p>Expected By:
-                <input type="date" onChange={(e) => dispatch(instantUpdateTask({index: index, updatedTask: {...edit, ExpectedBy: e.target.value}}))} value={edit.ExpectedBy}
+              <input type="date" onChange={(e) => dispatch(instantUpdateTask({ index: index, updatedTask: { ...edit, ExpectedBy: e.target.value } }))}
+                value={edit.ExpectedBy}
                   min={new Date().toISOString().slice(0, 10)} className="bg-sky-50/0" /></p>
               <p>Created On: {task.CreatedOn}</p>
             </div>
@@ -56,7 +58,8 @@ export default function Edit({ task }) {
         <div className='flex flex-col items-center'>
           <div className="mb-5">
             <div className="mt-3 flex gap-1 text-sm font-bold">
-              <a href="#" onClick={() => dispatch(instantPriority(index))} className={`filter badge ${edit.Priority.toLowerCase()}`} >{edit.Priority}</a>
+              <a href="#" onClick={() => dispatch(instantPriority(index))} className={`filter badge ${edit.Priority.toLowerCase()}`} >
+                {edit.Priority}</a>
             </div>
           </div>
 
