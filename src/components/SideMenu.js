@@ -5,13 +5,12 @@ import { Fragment } from "react";
 import AccountMenu from "./menu/AccountMenu";
 import Notifications from "./menu/Notifications";
 import Help from "./menu/Help";
-import Search from "./menu/Search";
 
 function SideMenu() {
   const username = 'Alex'//useSelector((state) => state.user.username);
 
   return (
-    <div className="hidden z-40 sticky lg:grid grid-rows-5 h-screen p-3 w-16 bg-azure-radiance-950 text-azure-radiance-100">
+    <div className="hidden z-40 sticky lg:grid grid-rows-6 h-screen p-3 w-16 bg-azure-radiance-950 text-azure-radiance-100">
 
       {/* User Section */}
       <div className="border-b section mt-3">
@@ -43,22 +42,15 @@ function SideMenu() {
       {/* Todo Section */}
       <div className="border-b section">
         <div className="flex justify-center">
-          <button
-            title="Tasks"
-            className="p-2 text-2xl hover:text-azure-radiance-400 transition"
-          >
+          <button title="Tasks" className="p-2 text-2xl hover:text-azure-radiance-400 transition">
             <LuListTodo />
           </button>
         </div>
         <div className="flex justify-center">
-          <button
-            title="Calendar"
-            className="p-2 text-2xl hover:text-azure-radiance-400 transition"
-          >
+          <button title="Calendar" className="p-2 text-2xl hover:text-azure-radiance-400 transition">
             <SlCalender />
           </button>
         </div>
-        <Search/>
       </div>
 
       {/* Help Section */}

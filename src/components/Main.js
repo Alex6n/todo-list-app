@@ -8,10 +8,12 @@ import { useSelector } from 'react-redux'
 
 
 export default function Main() {
-  const { urgent, strategic, pressing, optional } = useSelector(state => state.filters)
-  const tasks = useSelector(state => state.tasks.list);
+  const { urgent, strategic, pressing, optional, search } = useSelector(state => state.filters)
+  const tasksX = useSelector(state => state.tasks.list);
   const todaysDate = new Date().toISOString().slice(0, 10)
   
+  const tasks = tasksX.filter(task => JSON.stringify(task).toLowerCase().includes(search.toLowerCase()))
+
   const filterTasks = (taskList, filters) => {
     return taskList.filter(task => {
       switch (true) {
