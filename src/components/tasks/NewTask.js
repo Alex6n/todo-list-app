@@ -112,9 +112,9 @@ export default function NewTask() {
                   <input type="file" id="myfile" name="myfile" />
                 </div>
                 <div className="flex flex-col">
-                  <button onClick={newTaskHandler} className={`special-tab ${title.length > 0 || 'cursor-not-allowed'}`}>
+                  <a onClick={newTaskHandler} className={`special-tab ${title.length > 0 || 'cursor-not-allowed'}`}>
                     <PlusCircleIcon className='icon' />Create a new task
-                  </button>
+                  </a>
                 </div>
 
               </form>
