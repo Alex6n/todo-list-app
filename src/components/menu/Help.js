@@ -3,15 +3,15 @@ import { Fragment, useState } from "react";
 import { LuHelpCircle } from "react-icons/lu";
 
 export default function Help() {
-    let [isOpen, setIsOpen] = useState(false)
+  let [isOpen, setIsOpen] = useState(false)
 
-    function closeModal() {
-      setIsOpen(false)
-    }
-  
-    function openModal() {
-      setIsOpen(true)
-    }
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
   return (
     <>
       <button title="Help" className="p-2 text-2xl hover:text-azure-radiance-400 transition" onClick={openModal}>
