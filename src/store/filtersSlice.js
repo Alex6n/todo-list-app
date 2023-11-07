@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 export const filtersSlice = createSlice({
     name: 'filters',
     initialState: {
-        search: null,
+        search: "",
         urgent: true,
         strategic: true,
         pressing: true,

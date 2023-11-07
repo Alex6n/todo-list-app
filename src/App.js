@@ -5,7 +5,7 @@ import SideMenu from './components/SideMenu';
 function App() {
   return (
     <div className="flex">
-      <SideMenu/>
+      <SideMenu />
       <Main />
     </div>
   );

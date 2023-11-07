@@ -12,9 +12,6 @@
     .special-tab {
         @apply flex items-center rounded-lg px-3 py-2 bg-azure-radiance-200 hover:bg-azure-radiance-300 hover:text-gray-700 transition-colors duration-300
     }
-    .section {
-        @apply border-opacity-30 border-azure-radiance-100 mb-7
-    }
     .card-devider {
         @apply border-r border-opacity-30 border-azure-radiance-950
     }

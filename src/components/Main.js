@@ -12,7 +12,8 @@ export default function Main() {
   const tasksX = useSelector(state => state.tasks.list);
   const todaysDate = new Date().toISOString().slice(0, 10)
   
-  const tasks = tasksX.filter(task => JSON.stringify(task).toLowerCase().includes(search.toLowerCase()))
+  const tasks = tasksX.filter(task => JSON.stringify(task).toLowerCase().includes(search.toLowerCase()));
+  
 
   const filterTasks = (taskList, filters) => {
     return taskList.filter(task => {
