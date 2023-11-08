@@ -59,13 +59,13 @@ export default function Help() {
                   <div className="mt-1 mb-3">
                     <p className="text-sm text-gray-500 whitespace-pre-wrap">According to the Eisenhower Matrix,
                       tasks can be classified into four categories:<br className="mb-2"/>
-                      <div className="badge urgent inline-block">Urgent and Important</div>
+                      <div className="badge urgent inline-block mx-1">Urgent and Important</div>
                       Handle these tasks immediately.<br className="mb-2" />
-                      <div className="badge strategic inline-block">Important but Not Urgent</div>
+                      <div className="badge strategic inline-block mx-1">Important but Not Urgent</div>
                       Schedule these tasks for later.<br className="mb-2" />
-                      <div className="badge pressing inline-block">Urgent but Not Important</div>
+                      <div className="badge pressing inline-block mx-1">Urgent but Not Important</div>
                       Delegate these tasks if possible.<br className="mb-2" />
-                      <div className="badge optional inline-block">Not Urgent and Not Important</div>
+                      <div className="badge optional inline-block mx-1">Not Urgent and Not Important</div>
                       Consider eliminating or deferring these tasks to free up your time
                       for more critical activities.
                     </p>

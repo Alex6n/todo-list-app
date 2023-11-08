@@ -9,7 +9,7 @@ function SideMenu() {
   const username = 'Alex'//useSelector((state) => state.user.username);
 
   return (
-    <div className="z-40 sticky h-screen p-3 w-16 bg-azure-radiance-950 text-azure-radiance-100">
+    <div className="z-40 h-screen p-3 w-16 bg-azure-radiance-950 text-azure-radiance-100">
       {/* User Section */}
       <div className="flex justify-center border-b border-opacity-30 border-azure-radiance-100 pt-5">
         <Listbox className="mt-1 mb-7">
@@ -21,6 +21,9 @@ function SideMenu() {
             </Listbox.Button>
             <Transition
               as={Fragment}
+              enter="transition ease-in duration-100"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
               leave="transition ease-in duration-100"
               leaveFrom="opacity-100"
               leaveTo="opacity-0">
