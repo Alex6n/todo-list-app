@@ -4,9 +4,10 @@ import AccountMenu from "./menu/AccountMenu";
 import Notifications from "./menu/Notifications";
 import Help from "./menu/Help";
 import { BiMoon } from 'react-icons/bi'; 
+import { useSelector } from "react-redux";
  
 function SideMenu() {
-  const username = 'Alex'//useSelector((state) => state.user.username);
+  const profile = useSelector(state => state.user.profile);
 
   return (
     <div className="z-40 h-screen p-3 w-16 bg-azure-radiance-950 text-azure-radiance-100">
@@ -16,8 +17,8 @@ function SideMenu() {
           <div>
             <Listbox.Button className="hover:text-azure-radiance-400 transition" title="Customize your profile">
               <img alt="Profile Image" className="h-10 rounded-xl"
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOj12MDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"/>
-              <p className="text-center font-bold text-xs">{username}</p>
+                src={require(`../assets/${profile.img}`)} />
+              <p className="text-center font-bold text-xs">{profile.name}</p>
             </Listbox.Button>
             <Transition
               as={Fragment}
