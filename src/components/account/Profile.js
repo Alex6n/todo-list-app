@@ -14,8 +14,8 @@ export default function Profile() {
   }
   
   return (
-    <div className="grid grid-col h-full items-center p-5 lg:p-14">
-      <div className="bg-azure-radiance-950/30 rounded-md h-full w-full">
+    <div className="grid grid-col h-full items-center justify-center p-5 lg:p-14">
+      <div className="bg-azure-radiance-950/30 rounded-md h-full px-20">
 
         <form onSubmit={(e) => handleSubmit(e)}>
           {/* Profile Picture */}
