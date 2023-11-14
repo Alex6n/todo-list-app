@@ -7,6 +7,16 @@ export const userSlice = createSlice({
             img: 'alex.jpg',
             name: 'Alex'
         },
+        user: {
+            name: "",
+            email: "",
+            password: "",
+            dob: "",
+            mqa: {
+                question: "",
+                answer: ""
+            }
+        }
     },
     reducers: {
         editProfile: (state, action) => {

@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export default function Settings() {
+  const [user, setUser] = useState({ name: "", email: "", password: "", dob: "", mqa: { question: "", answer: "" } });
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -10,12 +14,27 @@ export default function Settings() {
 
         <form onSubmit={(e) => handleSubmit(e)}>
             
-          {/* Username */}
-          {/* Email */}
-          {/* Phone */}
-          {/* Password */}
-          {/* Date of birth */}
-          {/* Memorable Q&A */}
+          <div className="flex flex-col items-center justify-center gap-3 mt-10">
+            <input type="text" placeholder="Username" className="text-center p-2 w-56 rounded-xl bg-azure-radiance-100 font-bold"
+              value={user.name} onChange={e => setUser({ ...user, name: e.target.value })} />
+            
+            <input type="text" placeholder="Email" className="text-center p-2 w-56 rounded-xl bg-azure-radiance-100 font-bold"
+              value={user.email} onChange={e => setUser({ ...user, email: e.target.value })} />
+            
+            <input type="text" placeholder="Password" className="text-center p-2 w-56 rounded-xl bg-azure-radiance-100 font-bold"
+              value={user.password} onChange={e => setUser({ ...user, password: e.target.value })} />
+            
+            <input type="text" placeholder="Date of Birth" className="text-center p-2 w-56 rounded-xl bg-azure-radiance-100 font-bold"
+              value={user.dob} onChange={e => setUser({ ...user, dob: e.target.value })} />
+            
+            <input type="text" placeholder="Security Question" className="text-center p-2 w-56 rounded-xl bg-azure-radiance-100 font-bold"
+              value={user.mqa.question} onChange={e => setUser({ ...user, mqa: { ...user.mqa, question: e.target.value} })} />
+            
+            <input type="text" placeholder="Security Answer" className="text-center p-2 w-56 rounded-xl bg-azure-radiance-100 font-bold"
+              value={user.mqa.answer} onChange={e => setUser({ ...user, mqa: { ...user.mqa, answer: e.target.value} })} />
+            
+            <input type="submit" value="Save Changes" class="special-tab px-5 font-bold"/>
+          </div>
 
         </form>
 
