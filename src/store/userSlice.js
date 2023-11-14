@@ -21,10 +21,22 @@ export const userSlice = createSlice({
     reducers: {
         editProfile: (state, action) => {
             state.profile = action.payload;
+        },        
+        editUser: (state, action) => {
+            const payload = action.payload;
+            state.user = {
+                ...state.user,
+                ...payload,
+                mqa: {
+                    ...state.user.mqa,
+                    ...payload.mqa
+                }
+            };
         }
     }
 })
 
-export const { editProfile } = userSlice.actions;
+
+export const { editProfile, editUser } = userSlice.actions;
 
 export default userSlice.reducer;

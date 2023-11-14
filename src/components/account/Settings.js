@@ -1,10 +1,16 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { editUser } from "../../store/userSlice";
 
 export default function Settings() {
+  const dispatch = useDispatch();
   const [user, setUser] = useState({ name: "", email: "", password: "", dob: "", mqa: { question: "", answer: "" } });
-  
 
   const handleSubmit = (e) => {
+    const filteredUser = Object.fromEntries(Object.entries(user).filter(([key, value]) => value !== ''));
+    const filteredMqa = Object.fromEntries( Object.entries(user.mqa).filter(([key, value]) => value !== '') );
+    const filteredSettings = { ...filteredUser, mqa: filteredMqa, };
+    dispatch(editUser(filteredSettings));
     e.preventDefault();
   }
   
